@@ -1,6 +1,10 @@
 import VisitedButton from "../VisitedButton/VisitedButton";
 
-export default function CountriesList({ countries, onToggleVisited }) {
+export default function CountriesList({
+  countries,
+  onToggleVisited,
+  isVisited,
+}) {
   return (
     <>
       <ul>
@@ -12,7 +16,11 @@ export default function CountriesList({ countries, onToggleVisited }) {
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((country) => (
             <li key={country.name}>
-              {country.name} <VisitedButton onToggleVisited={onToggleVisited} />
+              {country.name}{" "}
+              <VisitedButton
+                isVisited={isVisited}
+                onToggleVisited={onToggleVisited}
+              />
             </li>
           ))}
       </ul>
