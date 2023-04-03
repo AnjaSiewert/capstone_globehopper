@@ -1,7 +1,15 @@
+import styled from "styled-components";
+
+const StyledHeader = styled.header`
+  display: flex;
+  justify-content: center;
+  background-color: #9ac6bc;
+`;
+
 export default function Header({ headline }) {
   return (
-    <header>
+    <StyledHeader>
       <h1>{headline}</h1>
-    </header>
+    </StyledHeader>
   );
 }
