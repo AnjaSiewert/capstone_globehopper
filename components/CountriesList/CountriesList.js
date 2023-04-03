@@ -5,7 +5,7 @@ export default function CountriesList({ countries }) {
         {countries
           .sort((a, b) => a.name.common.localeCompare(b.name.common))
           .map((country) => (
-            <li key={country.name.common}>{country.name.common}</li>
+            <li key={country.name}>{country.name.common}</li>
           ))}
       </ul>
     </>

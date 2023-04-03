@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
 
   if (error) return "An error has occurred.";
   if (isLoading) return "is loading...";
+  console.log(data);
 
   return (
     <>
