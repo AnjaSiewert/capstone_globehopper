@@ -1,7 +1,9 @@
+import Header from "../components/Header/Header";
+
 export default function CountriesListPage() {
   return (
     <>
-      <p>CountryList</p>
+      <Header headline="explore" />
     </>
   );
 }
