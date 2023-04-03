@@ -3,7 +3,8 @@ import VisitedButton from "../VisitedButton/VisitedButton";
 export default function CountriesList({
   countries,
   onToggleVisited,
-  isVisited,
+  countriesInfo,
+  name,
 }) {
   return (
     <>
@@ -18,8 +19,8 @@ export default function CountriesList({
             <li key={country.name}>
               {country.name}{" "}
               <VisitedButton
-                isVisited={isVisited}
                 onToggleVisited={onToggleVisited}
+                countriesInfo={countriesInfo}
               />
             </li>
           ))}

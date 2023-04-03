@@ -15,13 +15,13 @@ export default function App({ Component, pageProps, isVisited }) {
   if (isLoading) return "is loading...";
 
   function handleToggleVisited(name) {
-    return setCountriesInfo((countriesInfo) => {
-      const info = countriesInfo.find((info) => info.country.name === name);
+    setCountriesInfo((countriesInfo) => {
+      const info = countriesInfo.find((country) => country.name === name);
       if (info) {
-        return countriesInfo.map((info) =>
-          info.country.name === name
-            ? { ...info, isVisited: !info.isVisited }
-            : info
+        return countriesInfo.map((country) =>
+          country.name === name
+            ? { ...country, isVisited: !country.isVisited }
+            : country
         );
       }
       return [...countriesInfo, { country: { name }, isVisited: true }];
@@ -37,6 +37,7 @@ export default function App({ Component, pageProps, isVisited }) {
         countries={data}
         onToggleVisited={handleToggleVisited}
         isVisited={isVisited}
+        countriesInfo={countriesInfo}
       />
     </>
   );

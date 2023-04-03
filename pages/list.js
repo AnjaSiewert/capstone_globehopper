@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 export default function CountriesListPage({
   countries,
   onToggleVisited,
-  isVisited,
+  countriesInfo,
 }) {
   return (
     <>
@@ -12,7 +12,7 @@ export default function CountriesListPage({
       <CountriesList
         countries={countries}
         onToggleVisited={onToggleVisited}
-        isVisited={isVisited}
+        countriesInfo={countriesInfo}
       />
     </>
   );
