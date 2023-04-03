@@ -11,12 +11,19 @@ export default function App({ Component, pageProps }) {
 
   if (error) return "An error has occurred.";
   if (isLoading) return "is loading...";
-  console.log(data);
+
+  function handleToggleVisited() {
+    return console.log("it works");
+  }
 
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} countries={data} />
+      <Component
+        {...pageProps}
+        countries={data}
+        onToggleVisited={handleToggleVisited}
+      />
     </>
   );
 }
