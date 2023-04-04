@@ -1,7 +1,19 @@
 import VisitedButton from "../VisitedButton/VisitedButton";
+import styled from "styled-components";
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 1.5rem;
+`;
+
+const StyledFlag = styled.aside`
+  font-size: 3rem;
+`;
 
 export default function CountriesPreview({
-  countries,
   countriesInfo,
   onToggleVisited,
   name,
@@ -10,16 +22,16 @@ export default function CountriesPreview({
   flag,
 }) {
   return (
-    <>
-      <p>Country: {name}</p>
-      <p>Capital city: {capital}</p>
-      <p>Continent: {continent}</p>
-      <p>Flag: {flag}</p>
+    <StyledCard>
+      <h3>{name}</h3>
+      <span>Capital: {capital}</span>
+      <span>Continent: {continent}</span>
+      <StyledFlag>{flag}</StyledFlag>
       <VisitedButton
         onToggleVisited={onToggleVisited}
         countriesInfo={countriesInfo}
         name={name}
       />
-    </>
+    </StyledCard>
   );
 }
