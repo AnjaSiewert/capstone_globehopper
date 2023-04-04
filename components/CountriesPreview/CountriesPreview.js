@@ -1,7 +1,19 @@
-export default function CountriesPreview() {
+import VisitedButton from "../VisitedButton/VisitedButton";
+
+export default function CountriesPreview({
+  countries,
+  countriesInfo,
+  onToggleVisited,
+  name,
+}) {
   return (
     <>
-      <p>List of visited countries</p>
+      <p>{name}</p>
+      <VisitedButton
+        countries={countries}
+        onToggleVisited={onToggleVisited}
+        countriesInfo={countriesInfo}
+      />
     </>
   );
 }
