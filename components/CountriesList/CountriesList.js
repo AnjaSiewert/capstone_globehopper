@@ -6,7 +6,6 @@ export default function CountriesList({
   countries,
   onToggleVisited,
   countriesInfo,
-  isOnHomepage,
 }) {
   return (
     <>

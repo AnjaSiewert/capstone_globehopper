@@ -29,7 +29,6 @@ export default function App({ Component, pageProps, isVisited }) {
       return [...countriesInfo, { name, isVisited: true }];
     });
   }
-  console.log(countriesInfo);
 
   return (
     <>

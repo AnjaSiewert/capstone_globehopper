@@ -15,9 +15,6 @@ export default function VisitedCountriesPage({
     listVisitedCountries.find((info) => info.name === country.name.common)
   );
 
-  console.log("listVisitedCountries", listVisitedCountries);
-  console.log("VisitedCountries", visitedCountries);
-
   return (
     <>
       <Header headline="explored" />
