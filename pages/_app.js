@@ -16,15 +16,17 @@ export default function App({ Component, pageProps, isVisited }) {
 
   function handleToggleVisited(name) {
     setCountriesInfo((countriesInfo) => {
-      const info = countriesInfo.find((country) => country.name === name);
+      const info = countriesInfo.find(
+        (countryInfo) => countryInfo.name === name
+      );
       if (info) {
-        return countriesInfo.map((country) =>
-          country.name === name
-            ? { ...country, isVisited: !country.isVisited }
-            : country
+        return countriesInfo.map((countryInfo) =>
+          countryInfo.name === name
+            ? { ...countryInfo, isVisited: !countryInfo.isVisited }
+            : countryInfo
         );
       }
-      return [...countriesInfo, { country: { name }, isVisited: true }];
+      return [...countriesInfo, { name, isVisited: true }];
     });
   }
   console.log(countriesInfo);

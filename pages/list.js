@@ -5,6 +5,7 @@ export default function CountriesListPage({
   countries,
   onToggleVisited,
   countriesInfo,
+  name,
 }) {
   return (
     <>

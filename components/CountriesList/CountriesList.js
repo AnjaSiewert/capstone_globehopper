@@ -25,7 +25,6 @@ export default function CountriesList({
   countries,
   onToggleVisited,
   countriesInfo,
-  name,
 }) {
   return (
     <>
@@ -42,6 +41,7 @@ export default function CountriesList({
               <VisitedButton
                 onToggleVisited={onToggleVisited}
                 countriesInfo={countriesInfo}
+                name={country.name}
               />
             </StyledListElement>
           ))}

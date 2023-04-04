@@ -23,6 +23,7 @@ export default function VisitedButton({
         aria-label="Click"
         onClick={() => {
           onToggleVisited(name);
+          console.log("name", name);
         }}
       >
         {isVisited ? <CheckLiked /> : <Check height={32} width={32} />}
