@@ -7,12 +7,10 @@ export default function VisitedCountriesPage({
   countriesInfo,
   onToggleVisited,
 }) {
-  const listVisitedCountries = countriesInfo
-    .filter((info) => info.isVisited)
-    .map((info) => info.name);
+  const listVisitedCountries = countriesInfo.filter((info) => info.isVisited);
 
   const visitedCountries = countries.filter((country) =>
-    listVisitedCountries.includes(country.name)
+    listVisitedCountries.find((info) => info.name === country.name.common)
   );
 
   console.log("listVisitedCountries", listVisitedCountries);
@@ -26,9 +24,12 @@ export default function VisitedCountriesPage({
         {visitedCountries.map((country) => {
           return (
             <>
-              <li key={country.name.common}>
+              <li key={country.name}>
                 <CountriesPreview
-                  name={visitedCountries.name}
+                  name={country.name.common}
+                  capital={country.capital}
+                  continent={country.region}
+                  flag={country.flag}
                   countries={visitedCountries}
                   onToggleVisited={onToggleVisited}
                   countriesInfo={countriesInfo}

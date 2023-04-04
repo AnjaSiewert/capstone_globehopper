@@ -5,14 +5,20 @@ export default function CountriesPreview({
   countriesInfo,
   onToggleVisited,
   name,
+  capital,
+  continent,
+  flag,
 }) {
   return (
     <>
-      <p>{name}</p>
+      <p>Country: {name}</p>
+      <p>Capital city: {capital}</p>
+      <p>Continent: {continent}</p>
+      <p>Flag: {flag}</p>
       <VisitedButton
-        countries={countries}
         onToggleVisited={onToggleVisited}
         countriesInfo={countriesInfo}
+        name={name}
       />
     </>
   );
