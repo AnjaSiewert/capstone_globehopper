@@ -1,14 +1,9 @@
 import Header from "../components/Header/Header";
 import Image from "next/image";
-import styled from "styled-components";
+import Counter from "../components/Counter/Counter";
+import StyledDiv from "../components/StyledDiv";
 
-const StyledDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-`;
-
-export default function HomePage() {
+export default function HomePage({ onCountVisitedCountries, countries }) {
   return (
     <>
       <Header headline="globehopper" />
@@ -20,6 +15,10 @@ export default function HomePage() {
           alt="worldmap"
         />
       </StyledDiv>
+      <Counter
+        countries={countries}
+        onCountVisitedCountries={onCountVisitedCountries}
+      />
     </>
   );
 }

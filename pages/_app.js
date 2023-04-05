@@ -31,6 +31,13 @@ export default function App({ Component, pageProps, isVisited }) {
     });
   }
 
+  function handleCountVisitedCountries() {
+    const visitedCountries = countriesInfo.filter(
+      (countryInfo) => countryInfo.isVisited === true
+    );
+    return visitedCountries.length;
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -41,6 +48,7 @@ export default function App({ Component, pageProps, isVisited }) {
           onToggleVisited={handleToggleVisited}
           isVisited={isVisited}
           countriesInfo={countriesInfo}
+          onCountVisitedCountries={handleCountVisitedCountries}
         />
       </Layout>
     </>
