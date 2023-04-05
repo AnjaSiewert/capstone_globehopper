@@ -34,14 +34,15 @@ export default function App({ Component, pageProps, isVisited }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        countries={data}
-        onToggleVisited={handleToggleVisited}
-        isVisited={isVisited}
-        countriesInfo={countriesInfo}
-      />
-      <Layout />
+      <Layout>
+        <Component
+          {...pageProps}
+          countries={data}
+          onToggleVisited={handleToggleVisited}
+          isVisited={isVisited}
+          countriesInfo={countriesInfo}
+        />
+      </Layout>
     </>
   );
 }

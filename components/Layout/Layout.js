@@ -1,14 +1,17 @@
 import Navigation from "../Navigation/Navigation";
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+  margin-bottom: 4rem;
+`;
 
 export default function Layout({ children }) {
   return (
     <>
-      <body>
-        <main>{children}</main>
-        <footer>
-          <Navigation />
-        </footer>
-      </body>
+      <StyledMain>{children}</StyledMain>
+      <footer>
+        <Navigation />
+      </footer>
     </>
   );
 }
