@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import Header from "../components/Header/Header";
 import StyledList from "../components/StyledList";
@@ -18,7 +17,6 @@ export default function VisitedCountriesPage({
   return (
     <>
       <Header headline="explored" />
-      <Link href="/list">Go to list page</Link>
       <StyledList>
         {visitedCountries.map((country) => {
           return (

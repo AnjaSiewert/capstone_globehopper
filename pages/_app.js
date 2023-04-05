@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { useState } from "react";
+import Layout from "../components/Layout/Layout";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -33,13 +34,15 @@ export default function App({ Component, pageProps, isVisited }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        countries={data}
-        onToggleVisited={handleToggleVisited}
-        isVisited={isVisited}
-        countriesInfo={countriesInfo}
-      />
+      <Layout>
+        <Component
+          {...pageProps}
+          countries={data}
+          onToggleVisited={handleToggleVisited}
+          isVisited={isVisited}
+          countriesInfo={countriesInfo}
+        />
+      </Layout>
     </>
   );
 }
