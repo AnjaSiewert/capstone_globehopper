@@ -1,5 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
+import Home from "../../assets/home.svg";
+import Earth from "../../assets/earth.svg";
+import Map from "../../assets/map.svg";
 
 const StyledFooter = styled.div`
   display: flex;
@@ -13,9 +16,15 @@ const StyledFooter = styled.div`
 export default function Navigation() {
   return (
     <StyledFooter>
-      <Link href="/">Home</Link>
-      <Link href="/list">List</Link>
-      <Link href="/visited">Visited</Link>
+      <Link href="/">
+        <Home />
+      </Link>
+      <Link href="/list">
+        <Earth />
+      </Link>
+      <Link href="/visited">
+        <Map />
+      </Link>
     </StyledFooter>
   );
 }
