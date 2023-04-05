@@ -3,7 +3,7 @@ import Image from "next/image";
 import Counter from "../components/Counter/Counter";
 import StyledDiv from "../components/StyledDiv";
 
-export default function HomePage({ onCountVisitedCountries, countries }) {
+export default function HomePage({ countries, isVisited, countriesInfo }) {
   return (
     <>
       <Header headline="globehopper" />
@@ -17,7 +17,8 @@ export default function HomePage({ onCountVisitedCountries, countries }) {
       </StyledDiv>
       <Counter
         countries={countries}
-        onCountVisitedCountries={onCountVisitedCountries}
+        isVisited={isVisited}
+        countriesInfo={countriesInfo}
       />
     </>
   );
