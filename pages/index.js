@@ -3,7 +3,7 @@ import Image from "next/image";
 import Counter from "../components/Counter/Counter";
 import StyledDiv from "../components/StyledDiv";
 
-export default function HomePage({ countries, isVisited, countriesInfo }) {
+export default function HomePage({ countries, countriesInfo }) {
   return (
     <>
       <Header headline="globehopper" />
@@ -15,11 +15,7 @@ export default function HomePage({ countries, isVisited, countriesInfo }) {
           alt="worldmap"
         />
       </StyledDiv>
-      <Counter
-        countries={countries}
-        isVisited={isVisited}
-        countriesInfo={countriesInfo}
-      />
+      <Counter countries={countries} countriesInfo={countriesInfo} />
     </>
   );
 }
