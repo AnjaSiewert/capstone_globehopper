@@ -7,6 +7,7 @@ const StyledFooter = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: var(--tourquoise);
 `;
 
 export default function Navigation() {

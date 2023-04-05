@@ -9,8 +9,7 @@ const StyledListElement = styled.li`
       align-items: center;
       border: 1px solid grey;
       border-radius: 1rem;
-
-      background-color: #ece7e9;
+      background-color: var(--lightgrey);
     `}
   list-style: none;
   margin: 0.5rem;
