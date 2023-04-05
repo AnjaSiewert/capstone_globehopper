@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Home from "../../assets/home.svg";
-import Earth from "../../assets/earth.svg";
-import Map from "../../assets/map.svg";
+import Home from "../../public/assets/home.svg";
+import Earth from "../../public/assets/earth.svg";
+import Map from "../../public/assets/map.svg";
 import StyledFooter from "../StyledFooter";
 
 export default function Navigation() {
