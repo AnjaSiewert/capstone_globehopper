@@ -1,5 +1,6 @@
 import VisitedButton from "../VisitedButton/VisitedButton";
 import styled from "styled-components";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 const StyledCard = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ const StyledFlag = styled.aside`
 export default function CountriesPreview({
   countriesInfo,
   onToggleVisited,
+  onToggleFavorite,
   name,
   capital,
   continent,
@@ -29,6 +31,11 @@ export default function CountriesPreview({
       <StyledFlag>{flag}</StyledFlag>
       <VisitedButton
         onToggleVisited={onToggleVisited}
+        countriesInfo={countriesInfo}
+        name={name}
+      />
+      <FavoriteButton
+        onToggleFavorite={onToggleFavorite}
         countriesInfo={countriesInfo}
         name={name}
       />

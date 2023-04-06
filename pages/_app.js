@@ -31,6 +31,23 @@ export default function App({ Component, pageProps, isVisited }) {
     });
   }
 
+  function handleToggleFavorite(name) {
+    setCountriesInfo((countriesInfo) => {
+      const favoriteInfo = countriesInfo.find(
+        (countryInfo) => countryInfo.name === name
+      );
+
+      if (favoriteInfo) {
+        return countriesInfo.map((countryInfo) =>
+          countryInfo.name === name
+            ? { ...countryInfo, isFavorite: !countryInfo.isFavorite }
+            : countryInfo
+        );
+      }
+      return [...countriesInfo, { name, isFavorite: true }];
+    });
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -39,6 +56,7 @@ export default function App({ Component, pageProps, isVisited }) {
           {...pageProps}
           countries={data}
           onToggleVisited={handleToggleVisited}
+          onToggleFavorite={handleToggleFavorite}
           isVisited={isVisited}
           countriesInfo={countriesInfo}
         />

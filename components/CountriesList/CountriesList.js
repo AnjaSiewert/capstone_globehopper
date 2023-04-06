@@ -1,10 +1,12 @@
 import VisitedButton from "../VisitedButton/VisitedButton";
 import StyledListElement from "../StyledListElement";
 import StyledList from "../StyledList";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 export default function CountriesList({
   countries,
   onToggleVisited,
+  onToggleFavorite,
   countriesInfo,
 }) {
   return (
@@ -21,6 +23,11 @@ export default function CountriesList({
               {country.name}{" "}
               <VisitedButton
                 onToggleVisited={onToggleVisited}
+                countriesInfo={countriesInfo}
+                name={country.name}
+              />
+              <FavoriteButton
+                onToggleFavorite={onToggleFavorite}
                 countriesInfo={countriesInfo}
                 name={country.name}
               />

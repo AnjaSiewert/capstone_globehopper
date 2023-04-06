@@ -1,4 +1,4 @@
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
