@@ -2,6 +2,7 @@ import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import Header from "../components/Header/Header";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
+import VisitedButton from "../components/VisitedButton/VisitedButton";
 
 export default function VisitedCountriesPage({
   countries,
@@ -30,6 +31,11 @@ export default function VisitedCountriesPage({
                   countries={visitedCountries}
                   onToggleVisited={onToggleVisited}
                   countriesInfo={countriesInfo}
+                />
+                <VisitedButton
+                  onToggleVisited={onToggleVisited}
+                  countriesInfo={countriesInfo}
+                  name={country.name.common}
                 />
               </StyledListElement>
             </>

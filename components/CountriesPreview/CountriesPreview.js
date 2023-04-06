@@ -29,16 +29,6 @@ export default function CountriesPreview({
       <span>Capital: {capital}</span>
       <span>Continent: {continent}</span>
       <StyledFlag>{flag}</StyledFlag>
-      <VisitedButton
-        onToggleVisited={onToggleVisited}
-        countriesInfo={countriesInfo}
-        name={name}
-      />
-      <FavoriteButton
-        onToggleFavorite={onToggleFavorite}
-        countriesInfo={countriesInfo}
-        name={name}
-      />
     </StyledCard>
   );
 }
