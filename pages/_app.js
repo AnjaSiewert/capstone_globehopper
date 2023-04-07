@@ -5,7 +5,7 @@ import Layout from "../components/Layout/Layout";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function App({ Component, pageProps, isVisited }) {
+export default function App({ Component, pageProps }) {
   const [countriesInfo, setCountriesInfo] = useState([]);
   const { data, error, isLoading } = useSWR(
     "https://restcountries.com/v3.1/all",
@@ -31,6 +31,23 @@ export default function App({ Component, pageProps, isVisited }) {
     });
   }
 
+  function handleToggleFavorite(name) {
+    setCountriesInfo((countriesInfo) => {
+      const favoriteInfo = countriesInfo.find(
+        (countryInfo) => countryInfo.name === name
+      );
+
+      if (favoriteInfo) {
+        return countriesInfo.map((countryInfo) =>
+          countryInfo.name === name
+            ? { ...countryInfo, isFavorite: !countryInfo.isFavorite }
+            : countryInfo
+        );
+      }
+      return [...countriesInfo, { name, isFavorite: true }];
+    });
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -39,7 +56,7 @@ export default function App({ Component, pageProps, isVisited }) {
           {...pageProps}
           countries={data}
           onToggleVisited={handleToggleVisited}
-          isVisited={isVisited}
+          onToggleFavorite={handleToggleFavorite}
           countriesInfo={countriesInfo}
         />
       </Layout>

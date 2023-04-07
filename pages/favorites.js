@@ -1,26 +1,26 @@
 import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
+import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
 import Header from "../components/Header/Header";
 import StyledButton from "../components/StyledButton";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
-import VisitedButton from "../components/VisitedButton/VisitedButton";
 
-export default function VisitedCountriesPage({
+export default function FavoriteCountriesPage({
   countries,
   countriesInfo,
-  onToggleVisited,
+  onToggleFavorite,
 }) {
-  const listVisitedCountries = countriesInfo.filter((info) => info.isVisited);
+  const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
-  const visitedCountries = countries.filter((country) =>
-    listVisitedCountries.find((info) => info.name === country.name.common)
+  const favoriteCountries = countries.filter((country) =>
+    listFavoriteCountries.find((info) => info.name === country.name.common)
   );
 
   return (
     <>
-      <Header headline="explored" />
+      <Header headline="to explore" />
       <StyledList>
-        {visitedCountries.map((country) => {
+        {favoriteCountries.map((country) => {
           return (
             <>
               <StyledListElement key={country.name}>
@@ -29,13 +29,13 @@ export default function VisitedCountriesPage({
                   capital={country.capital}
                   continent={country.region}
                   flag={country.flag}
-                  countries={visitedCountries}
-                  onToggleVisited={onToggleVisited}
+                  countries={favoriteCountries}
+                  onToggleFavorite={onToggleFavorite}
                   countriesInfo={countriesInfo}
                 />
                 <StyledButton positionSVG>
-                  <VisitedButton
-                    onToggleVisited={onToggleVisited}
+                  <FavoriteButton
+                    onToggleFavorite={onToggleFavorite}
                     countriesInfo={countriesInfo}
                     name={country.name.common}
                   />

@@ -1,12 +1,7 @@
-import Check from "./check.svg";
-import styled from "styled-components";
+import StyledButton from "../StyledButton";
+import Check from "../../public/assets/check.svg";
 
 const CheckLiked = () => <Check height={32} width={32} fill="red" />;
-
-const StyledButton = styled.button`
-  background: transparent;
-  border: none;
-`;
 
 export default function VisitedButton({
   onToggleVisited,
