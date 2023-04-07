@@ -2,6 +2,12 @@ import VisitedButton from "../VisitedButton/VisitedButton";
 import StyledListElement from "../StyledListElement";
 import StyledList from "../StyledList";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import styled from "styled-components";
+
+const StyledVisitedToggle = styled.div`
+  position: absolute;
+  right: 5rem;
+`;
 
 export default function CountriesList({
   countries,
@@ -21,11 +27,13 @@ export default function CountriesList({
           .map((country) => (
             <StyledListElement isOnHomepage key={country.name}>
               {country.name}{" "}
-              <VisitedButton
-                onToggleVisited={onToggleVisited}
-                countriesInfo={countriesInfo}
-                name={country.name}
-              />
+              <StyledVisitedToggle>
+                <VisitedButton
+                  onToggleVisited={onToggleVisited}
+                  countriesInfo={countriesInfo}
+                  name={country.name}
+                />
+              </StyledVisitedToggle>
               <FavoriteButton
                 onToggleFavorite={onToggleFavorite}
                 countriesInfo={countriesInfo}

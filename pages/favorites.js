@@ -1,6 +1,7 @@
 import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
 import Header from "../components/Header/Header";
+import StyledButton from "../components/StyledButton";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 
@@ -32,11 +33,13 @@ export default function FavoriteCountriesPage({
                   onToggleFavorite={onToggleFavorite}
                   countriesInfo={countriesInfo}
                 />
-                <FavoriteButton
-                  onToggleFavorite={onToggleFavorite}
-                  countriesInfo={countriesInfo}
-                  name={country.name.common}
-                />
+                <StyledButton positionSVG>
+                  <FavoriteButton
+                    onToggleFavorite={onToggleFavorite}
+                    countriesInfo={countriesInfo}
+                    name={country.name.common}
+                  />
+                </StyledButton>
               </StyledListElement>
             </>
           );
