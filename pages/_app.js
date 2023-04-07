@@ -5,7 +5,7 @@ import Layout from "../components/Layout/Layout";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function App({ Component, pageProps, isVisited }) {
+export default function App({ Component, pageProps }) {
   const [countriesInfo, setCountriesInfo] = useState([]);
   const { data, error, isLoading } = useSWR(
     "https://restcountries.com/v3.1/all",
@@ -57,7 +57,6 @@ export default function App({ Component, pageProps, isVisited }) {
           countries={data}
           onToggleVisited={handleToggleVisited}
           onToggleFavorite={handleToggleFavorite}
-          isVisited={isVisited}
           countriesInfo={countriesInfo}
         />
       </Layout>
