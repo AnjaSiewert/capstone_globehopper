@@ -4,6 +4,7 @@ import Earth from "../../public/assets/earth.svg";
 import Map from "../../public/assets/map.svg";
 import StyledFooter from "../StyledFooter";
 import StarBox from "../../public/assets/starbox.svg";
+import Star from "../../public/assets/star.svg";
 
 export default function Navigation() {
   return (
@@ -18,7 +19,7 @@ export default function Navigation() {
         <Map aria-label="visitedpage" />
       </Link>
       <Link aria-label="go to favoritespage" href="/favorites">
-        <StarBox aria-label="favoritespage" />
+        <Star aria-label="favoritespage" />
       </Link>
     </StyledFooter>
   );

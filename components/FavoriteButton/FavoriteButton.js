@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Starbox from "./starbox.svg";
+import Star from "./star.svg";
 
 const StarboxLiked = () => <Starbox height={32} width={32} fill="red" />;
+const StarLiked = () => <Star height={32} width={32} fill="red" />;
 
 const StyledButton = styled.button`
   background: transparent;
@@ -25,7 +27,7 @@ export default function FavoriteButton({
           onToggleFavorite(name);
         }}
       >
-        {isFavorite ? <StarboxLiked /> : <Starbox height={32} width={32} />}
+        {isFavorite ? <StarLiked /> : <Star height={32} width={32} />}
       </StyledButton>
     </>
   );
