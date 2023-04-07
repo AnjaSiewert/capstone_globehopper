@@ -1,5 +1,5 @@
 import StyledButton from "../StyledButton";
-import Check from "./check.svg";
+import Check from "../../public/assets/check.svg";
 
 const CheckLiked = () => <Check height={32} width={32} fill="red" />;
 
