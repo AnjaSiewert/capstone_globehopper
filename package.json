@@ -20,7 +20,8 @@
     "react-dom": "18.2.0",
     "styled-components": "^5.3.6",
     "swr": "^2.1.2",
-    "use-immer": "^0.9.0"
+    "use-immer": "^0.9.0",
+    "use-local-storage-state": "^18.3.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",

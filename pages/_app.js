@@ -1,12 +1,15 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import { useState } from "react";
 import Layout from "../components/Layout/Layout";
+import useLocalStorageState from "use-local-storage-state";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
-  const [countriesInfo, setCountriesInfo] = useState([]);
+  const [countriesInfo, setCountriesInfo] = useLocalStorageState(
+    "countriesInfo",
+    { defaultValue: [] }
+  );
   const { data, error, isLoading } = useSWR(
     "https://restcountries.com/v3.1/all",
     fetcher
