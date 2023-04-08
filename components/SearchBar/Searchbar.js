@@ -1,4 +1,13 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const StyledSeachbar = styled.input`
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 10rem;
+`;
 
 export default function Searchbar({ countries, setFilteredCountries }) {
   const [searchInput, setSearchInput] = useState("");
@@ -14,7 +23,7 @@ export default function Searchbar({ countries, setFilteredCountries }) {
   };
 
   return (
-    <input
+    <StyledSeachbar
       type="text"
       placeholder="Search for a country..."
       onChange={handleChange}
