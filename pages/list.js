@@ -22,7 +22,6 @@ export default function CountriesListPage({
         onToggleVisited={onToggleVisited}
         onToggleFavorite={onToggleFavorite}
         countriesInfo={countriesInfo}
-        setFilteredCountries={setFilteredCountries}
       />
     </>
   );

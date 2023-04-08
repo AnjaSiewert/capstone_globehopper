@@ -14,12 +14,14 @@ export default function Searchbar({ countries, setFilteredCountries }) {
 
   const handleChange = (event) => {
     event.preventDefault();
-    const input = event.target.value;
-    setSearchInput(input);
-    const filtered = countries.filter((country) => {
-      return country.name.common.toLowerCase().includes(input.toLowerCase());
-    });
-    setFilteredCountries(filtered);
+    setSearchInput(event.target.value);
+    setFilteredCountries(
+      countries.filter((country) => {
+        return country.name.common
+          .toLowerCase()
+          .includes(event.target.value.toLowerCase());
+      })
+    );
   };
 
   return (
