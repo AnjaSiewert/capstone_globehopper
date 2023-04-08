@@ -1,24 +1,22 @@
 import { useState } from "react";
 
-export default function Searchbar({ countries }) {
+export default function Searchbar({ countries, setFilteredCountries }) {
   const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (event) => {
     event.preventDefault();
-    setSearchInput(event.target.value);
-  };
-
-  if (searchInput.length > 0) {
-    countries.filter((country) => {
-      return country.name.common.includes(searchInput);
+    const input = event.target.value;
+    setSearchInput(input);
+    const filtered = countries.filter((country) => {
+      return country.name.common.toLowerCase().includes(input.toLowerCase());
     });
-  }
-  console.log(searchInput);
+    setFilteredCountries(filtered);
+  };
 
   return (
     <input
       type="text"
-      placeholder="Search here"
+      placeholder="Search for a country..."
       onChange={handleChange}
       value={searchInput}
     />
