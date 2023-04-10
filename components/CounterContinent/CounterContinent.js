@@ -1,7 +1,6 @@
 import StyledDiv from "../StyledDiv";
 
 export default function CounterContinent({ countries, countriesInfo }) {
-  console.log(countries);
   const allContinents = [
     {
       name: "Europe",
