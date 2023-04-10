@@ -55,7 +55,7 @@ export default function CounterContinent({ countries, countriesInfo }) {
   return (
     <>
       {continentCounts.map((continent) => (
-        <StyledDiv key={continent.name}>
+        <StyledDiv withBorder key={continent.name}>
           <h2>{continent.name}</h2>
           <p>
             I have been in <strong>{continent.visitedCount}</strong> countries
