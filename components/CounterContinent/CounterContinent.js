@@ -58,7 +58,8 @@ export default function CounterContinent({ countries, countriesInfo }) {
         <StyledDiv withBorder key={continent.name}>
           <h2>{continent.name}</h2>
           <p>
-            I have been in <strong>{continent.visitedCount}</strong> countries
+            I have been in <strong>{continent.visitedCount} </strong>
+            {continent.visitedCount === 1 ? "country " : "countries "}
             of {continent.totalCount} countries in {continent.name}
           </p>
         </StyledDiv>
