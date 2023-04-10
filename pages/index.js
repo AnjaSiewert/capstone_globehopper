@@ -13,7 +13,7 @@ export default function HomePage({ countries, countriesInfo }) {
         <Image src={worldMap} height={250} width={250} alt="worldmap" />
       </StyledDiv>
       <Counter countries={countries} countriesInfo={countriesInfo} />
-      <CounterContinent />
+      <CounterContinent countries={countries} countriesInfo={countriesInfo} />
     </>
   );
 }

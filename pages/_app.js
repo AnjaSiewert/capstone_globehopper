@@ -43,7 +43,10 @@ export default function App({ Component, pageProps }) {
       if (favoriteInfo) {
         return countriesInfo.map((countryInfo) =>
           countryInfo.name === name
-            ? { ...countryInfo, isFavorite: !countryInfo.isFavorite }
+            ? {
+                ...countryInfo,
+                isFavorite: !countryInfo.isFavorite,
+              }
             : countryInfo
         );
       }

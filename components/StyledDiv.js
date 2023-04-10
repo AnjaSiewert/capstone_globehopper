@@ -5,7 +5,8 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  text-align: center;
+  margin: 2rem 2rem 2rem 2rem;
 `;
 
 export default StyledDiv;
