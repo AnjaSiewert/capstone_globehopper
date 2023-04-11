@@ -1,4 +1,5 @@
 import StyledDiv from "../StyledDiv";
+import StyledCounterContinent from "./StyledCounterContinent";
 
 export default function CounterContinent({ countries, countriesInfo }) {
   const allContinents = [
@@ -56,11 +57,11 @@ export default function CounterContinent({ countries, countriesInfo }) {
     <>
       {continentCounts.map((continent) => (
         <StyledDiv withBorder key={continent.name}>
-          <h2>{continent.name}</h2>
+          <h3>{continent.name}</h3>
           <p>
-            I have been in <strong>{continent.visitedCount} </strong>
-            {continent.visitedCount === 1 ? "country " : "countries "}
-            of {continent.totalCount} countries in {continent.name}
+            <StyledCounterContinent>
+              {continent.visitedCount} / {continent.totalCount}{" "}
+            </StyledCounterContinent>
           </p>
         </StyledDiv>
       ))}
