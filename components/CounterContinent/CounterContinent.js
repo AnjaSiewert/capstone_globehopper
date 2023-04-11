@@ -56,6 +56,10 @@ export default function CounterContinent({ countries, countriesInfo }) {
   return (
     <>
       {continentCounts
+        .map((continent) => ({
+          ...continent,
+          key: continent.name,
+        }))
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((continent) => (
           <StyledDiv withBorder key={continent.name}>
