@@ -55,16 +55,22 @@ export default function CounterContinent({ countries, countriesInfo }) {
 
   return (
     <>
-      {continentCounts.map((continent) => (
-        <StyledDiv withBorder key={continent.name}>
-          <h3>{continent.name}</h3>
-          <p>
-            <StyledCounterContinent>
-              {continent.visitedCount} / {continent.totalCount}{" "}
-            </StyledCounterContinent>
-          </p>
-        </StyledDiv>
-      ))}
+      {continentCounts
+        .map((continent) => ({
+          ...continent,
+          key: continent.name,
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((continent) => (
+          <StyledDiv withBorder key={continent.name}>
+            <h3>{continent.name}</h3>
+            <p>
+              <StyledCounterContinent>
+                {continent.visitedCount} / {continent.totalCount}{" "}
+              </StyledCounterContinent>
+            </p>
+          </StyledDiv>
+        ))}
     </>
   );
 }
