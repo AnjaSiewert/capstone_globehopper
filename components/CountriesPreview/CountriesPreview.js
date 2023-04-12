@@ -1,13 +1,10 @@
 import styled from "styled-components";
+import StyledFlag from "../StyledFlag";
 
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const StyledFlag = styled.aside`
-  font-size: 3rem;
 `;
 
 export default function CountriesPreview({ name, capital, continent, flag }) {
