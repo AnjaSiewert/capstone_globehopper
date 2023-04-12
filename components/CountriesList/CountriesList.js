@@ -26,7 +26,6 @@ export default function CountriesList({
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((country) => (
             <StyledListElement isOnHomepage key={country.name}>
-              {country.name}{" "}
               <StyledVisitedToggle>
                 <VisitedButton
                   onToggleVisited={onToggleVisited}

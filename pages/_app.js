@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "../components/Layout/Layout";
 import useLocalStorageState from "use-local-storage-state";
+import { useRouter } from "next/router";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -10,10 +11,14 @@ export default function App({ Component, pageProps }) {
     "countriesInfo",
     { defaultValue: [] }
   );
-  const { data, error, isLoading } = useSWR(
-    "https://restcountries.com/v3.1/all",
-    fetcher
-  );
+  const router = useRouter();
+  const { name } = router.query;
+
+  const url = name
+    ? `https://restcountries.com/v3.1/name/${name}`
+    : "https://restcountries.com/v3.1/all";
+
+  const { data, error, isLoading } = useSWR(url, fetcher);
 
   if (error) return "An error has occurred.";
   if (isLoading) return "is loading...";
