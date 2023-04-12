@@ -16,18 +16,23 @@ export default function CountryDetailsPage() {
 
   if (error) return "An error has occurred.";
   if (isLoading) return "is loading...";
+  console.log(data);
 
   function addSeparators(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
+  const languageWithSeparators = Object.values(data[0].languages).join(", ");
 
   return (
     <>
       <Header headline="globehopper" />
-      <StyledDiv>
+      <StyledDiv onDetailsPage>
         <h1>{data[0].name.common}</h1>
         <p>
           <strong>Continent:</strong> {data[0].continents}
+        </p>
+        <p>
+          <strong>Subregion:</strong> {data[0].subregion}
         </p>
         <p>
           <strong>Capital:</strong> {data[0].capital}
@@ -37,14 +42,12 @@ export default function CountryDetailsPage() {
         </p>
         <p>
           <strong>Language: </strong>
-          {Object.values(data[0].languages).map((language, index) => (
-            <span key={index}>{language}</span>
-          ))}
+          {languageWithSeparators}
         </p>
 
         {
           <p>
-            <strong>Currencies: </strong>
+            <strong>Currency: </strong>
             {Object.values(data[0].currencies).map((currency, index) => (
               <span key={index}>
                 {currency.name} <br />
@@ -55,7 +58,10 @@ export default function CountryDetailsPage() {
           </p>
         }
         <p>
-          <strong>Timezone</strong> {data[0].timezones}
+          <strong>Timezone:</strong> {data[0].timezones}
+        </p>
+        <p>
+          <strong>UN Member:</strong> {data[0].unMember ? "Yes" : "No"}
         </p>
 
         <StyledFlag>{data[0].flag}</StyledFlag>

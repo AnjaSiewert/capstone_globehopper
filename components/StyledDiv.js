@@ -15,6 +15,11 @@ const StyledDiv = styled.div`
       padding: 1rem 1rem 1rem 1rem;
       background-color: var(--lightgrey);
     `}
+  ${(props) =>
+    props.onDetailsPage &&
+    css`
+      margin-top: 0;
+    `}
 `;
 
 export default StyledDiv;
