@@ -17,6 +17,10 @@ export default function CountryDetailsPage() {
   if (error) return "An error has occurred.";
   if (isLoading) return "is loading...";
 
+  function addSeparators(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
   return (
     <>
       <Header headline="globehopper" />
@@ -29,7 +33,7 @@ export default function CountryDetailsPage() {
           <strong>Capital:</strong> {data[0].capital}
         </p>
         <p>
-          <strong>Population:</strong> {data[0].population}
+          <strong>Population:</strong> {addSeparators(data[0].population)}
         </p>
         <p>
           <strong>Language: </strong>
