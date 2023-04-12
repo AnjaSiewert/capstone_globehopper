@@ -16,7 +16,7 @@ const StyledDiv = styled.div`
       background-color: var(--lightgrey);
     `}
   ${(props) =>
-    props.onDetailsPage &&
+    props.isOnDetailsPage &&
     css`
       margin-top: 0;
     `}
