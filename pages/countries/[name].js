@@ -5,7 +5,7 @@ import CountryDetails from "../../components/CountryDetails";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function CountryDetailsPage() {
+export default function CountryDetailsPage({ countries }) {
   const router = useRouter();
   const { name } = router.query;
   const { data, error, isLoading } = useSWR(
