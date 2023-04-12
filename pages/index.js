@@ -10,7 +10,13 @@ export default function HomePage({ countries, countriesInfo }) {
     <>
       <Header headline="globehopper" />
       <StyledDiv>
-        <Image src={worldMap} height={250} width={250} alt="worldmap" />
+        <Image
+          src={worldMap}
+          height={250}
+          width={250}
+          alt="worldmap"
+          priority
+        />
       </StyledDiv>
       <Counter countries={countries} countriesInfo={countriesInfo} />
       <CounterContinent countries={countries} countriesInfo={countriesInfo} />
