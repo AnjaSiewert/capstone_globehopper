@@ -60,24 +60,12 @@ export default function CounterContinent({ countries, countriesInfo }) {
       name: continent.name,
       visitedCount: visitedCountries.length,
       totalCount: continent.countries.length,
+      percent: (
+        (visitedCountries.length / continent.countries.length) *
+        100
+      ).toFixed(2),
     };
   });
-
-  console.log("ContinentCountAll", continentCounts);
-  const visited = continentCounts.filter((continent) => continent.visitedCount);
-  console.log("visitedCount", visited);
-  const totalCount = continentCounts.filter(
-    (continent) => continent.totalCount
-  );
-  console.log("totalCount", totalCount);
-  const name = continentCounts.filter((continent) => continent.name);
-
-  const percent = name
-    .filter((continent) => continent.name === continent.name)
-    .map((continent) =>
-      ((continent.visitedCount / continent.totalCount) * 100).toFixed(2)
-    );
-  console.log(percent);
 
   return (
     <>
@@ -93,7 +81,9 @@ export default function CounterContinent({ countries, countriesInfo }) {
             <article>
               <StyledCounterContinent>
                 {continent.visitedCount} / {continent.totalCount}{" "}
-                <StyledProgressBar></StyledProgressBar>
+                <StyledProgressBar
+                  percent={continent.percent}
+                ></StyledProgressBar>
               </StyledCounterContinent>
             </article>
           </StyledDiv>
