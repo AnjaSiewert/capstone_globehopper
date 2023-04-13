@@ -27,7 +27,7 @@ export default function VisitedCountriesPage({
                 <CountriesPreview
                   name={country.name.common}
                   capital={country.capital}
-                  continent={country.region}
+                  continent={country.continents}
                   flag={country.flag}
                   countries={visitedCountries}
                   onToggleVisited={onToggleVisited}
