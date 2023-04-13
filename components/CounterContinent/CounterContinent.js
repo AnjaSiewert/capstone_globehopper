@@ -1,5 +1,14 @@
 import StyledDiv from "../StyledDiv";
 import StyledCounterContinent from "./StyledCounterContinent";
+import styled from "styled-components";
+
+const StyledProgressBar = styled.div`
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 10rem;
+`;
 
 export default function CounterContinent({ countries, countriesInfo }) {
   const allContinents = [
@@ -67,6 +76,7 @@ export default function CounterContinent({ countries, countriesInfo }) {
             <article>
               <StyledCounterContinent>
                 {continent.visitedCount} / {continent.totalCount}{" "}
+                <StyledProgressBar></StyledProgressBar>
               </StyledCounterContinent>
             </article>
           </StyledDiv>
