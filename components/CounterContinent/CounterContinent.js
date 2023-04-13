@@ -64,11 +64,11 @@ export default function CounterContinent({ countries, countriesInfo }) {
         .map((continent) => (
           <StyledDiv withBorder key={continent.name}>
             <h3>{continent.name}</h3>
-            <p>
+            <article>
               <StyledCounterContinent>
                 {continent.visitedCount} / {continent.totalCount}{" "}
               </StyledCounterContinent>
-            </p>
+            </article>
           </StyledDiv>
         ))}
     </>

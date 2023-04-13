@@ -12,8 +12,18 @@ const StyledDiv = styled.div`
     css`
       border: 1px solid grey;
       border-radius: 1rem;
-      padding: 1rem 1rem 1rem 1rem;
+      padding: 1rem;
       background-color: var(--lightgrey);
+    `}
+  ${(props) =>
+    props.isOnDetailsPage &&
+    css`
+      margin-top: 0;
+    `}
+    ${(props) =>
+    props.isShowingImage &&
+    css`
+      margin-top: 7rem;
     `}
 `;
 

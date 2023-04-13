@@ -3,6 +3,7 @@ import StyledListElement from "../StyledListElement";
 import StyledList from "../StyledList";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import styled from "styled-components";
+import Link from "next/link";
 
 const StyledVisitedToggle = styled.div`
   position: absolute;
@@ -26,7 +27,9 @@ export default function CountriesList({
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((country) => (
             <StyledListElement isOnHomepage key={country.name}>
-              {country.name}{" "}
+              <Link href={`/countries/${country.name.toLowerCase()}`}>
+                {country.name}{" "}
+              </Link>
               <StyledVisitedToggle>
                 <VisitedButton
                   onToggleVisited={onToggleVisited}

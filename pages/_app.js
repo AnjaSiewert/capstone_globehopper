@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "../components/Layout/Layout";
 import useLocalStorageState from "use-local-storage-state";
+import { useRouter } from "next/router";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -10,13 +11,22 @@ export default function App({ Component, pageProps }) {
     "countriesInfo",
     { defaultValue: [] }
   );
+  const router = useRouter();
+  const { name } = router.query;
+
   const { data, error, isLoading } = useSWR(
-    "https://restcountries.com/v3.1/all",
+    name
+      ? `https://restcountries.com/v3.1/name/${name}`
+      : "https://restcountries.com/v3.1/all",
     fetcher
   );
 
-  if (error) return "An error has occurred.";
-  if (isLoading) return "is loading...";
+  if (error) return <h2>An error has occurred.</h2>;
+  if (isLoading) return <h2>is loading...</h2>;
+
+  const selectedCountry = data.find(
+    (country) => country.name.common.toLowerCase() === name
+  );
 
   function handleToggleVisited(name) {
     setCountriesInfo((countriesInfo) => {
@@ -64,6 +74,7 @@ export default function App({ Component, pageProps }) {
           onToggleVisited={handleToggleVisited}
           onToggleFavorite={handleToggleFavorite}
           countriesInfo={countriesInfo}
+          selectedCountry={selectedCountry}
         />
       </Layout>
     </>

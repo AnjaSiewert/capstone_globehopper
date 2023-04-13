@@ -6,10 +6,10 @@ export default function Counter({ countries, countriesInfo }) {
   return (
     <>
       <StyledDiv>
-        <p>
+        <article>
           I have been in <strong>{countVisitedCountries.length}</strong>{" "}
           countries of total {countries.length} countries
-        </p>
+        </article>
       </StyledDiv>
     </>
   );
