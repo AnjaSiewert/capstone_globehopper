@@ -7,7 +7,8 @@ const StyledProgressBar = styled.div`
   border: 1px solid black;
   border-radius: 0.5rem;
   height: 1rem;
-  width: 10rem;
+  width: 15rem;
+  background-color: var(--tourquoise);
 `;
 
 export default function CounterContinent({ countries, countriesInfo }) {
@@ -61,6 +62,22 @@ export default function CounterContinent({ countries, countriesInfo }) {
       totalCount: continent.countries.length,
     };
   });
+
+  console.log("ContinentCountAll", continentCounts);
+  const visited = continentCounts.filter((continent) => continent.visitedCount);
+  console.log("visitedCount", visited);
+  const totalCount = continentCounts.filter(
+    (continent) => continent.totalCount
+  );
+  console.log("totalCount", totalCount);
+  const name = continentCounts.filter((continent) => continent.name);
+
+  const percent = name
+    .filter((continent) => continent.name === continent.name)
+    .map((continent) =>
+      ((continent.visitedCount / continent.totalCount) * 100).toFixed(2)
+    );
+  console.log(percent);
 
   return (
     <>
