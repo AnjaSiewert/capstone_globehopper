@@ -1,11 +1,12 @@
 import Header from "../../components/Header/Header";
 import CountryDetails from "../../components/CountryDetails";
 
-export default function CountryDetailsPage({ countries }) {
+export default function CountryDetailsPage({ selectedCountry, name }) {
+  console.log("app selected", selectedCountry);
   return (
     <>
       <Header headline="globehopper" />
-      <CountryDetails countries={countries} />
+      <CountryDetails name={name} selectedCountry={selectedCountry} />
     </>
   );
 }

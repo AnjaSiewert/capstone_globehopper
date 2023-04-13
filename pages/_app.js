@@ -14,14 +14,26 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const { name } = router.query;
 
-  const url = name
-    ? `https://restcountries.com/v3.1/name/${name}`
-    : "https://restcountries.com/v3.1/all";
+  const { data, error, isLoading } = useSWR(
+    name
+      ? `https://restcountries.com/v3.1/name/${name}`
+      : "https://restcountries.com/v3.1/all",
+    fetcher
+  );
 
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  if (error) return <h2>An error has occurred.</h2>;
+  if (isLoading) return <h2>is loading...</h2>;
 
-  if (error) return "An error has occurred.";
-  if (isLoading) return "is loading...";
+  const selectedCountry = data.find(
+    (country) => country.name.common.toLowerCase() === name
+  );
+
+  //console.log("data", data);
+
+  //console.log("name.common", data[0].name.common);
+
+  console.log("name", name);
+  //console.log("app selected", selectedCountry);
 
   function handleToggleVisited(name) {
     setCountriesInfo((countriesInfo) => {
@@ -69,6 +81,8 @@ export default function App({ Component, pageProps }) {
           onToggleVisited={handleToggleVisited}
           onToggleFavorite={handleToggleFavorite}
           countriesInfo={countriesInfo}
+          name={name}
+          selectedCountry={selectedCountry}
         />
       </Layout>
     </>
