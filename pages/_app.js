@@ -28,13 +28,6 @@ export default function App({ Component, pageProps }) {
     (country) => country.name.common.toLowerCase() === name
   );
 
-  //console.log("data", data);
-
-  //console.log("name.common", data[0].name.common);
-
-  console.log("name", name);
-  //console.log("app selected", selectedCountry);
-
   function handleToggleVisited(name) {
     setCountriesInfo((countriesInfo) => {
       const info = countriesInfo.find(
@@ -81,7 +74,6 @@ export default function App({ Component, pageProps }) {
           onToggleVisited={handleToggleVisited}
           onToggleFavorite={handleToggleFavorite}
           countriesInfo={countriesInfo}
-          name={name}
           selectedCountry={selectedCountry}
         />
       </Layout>

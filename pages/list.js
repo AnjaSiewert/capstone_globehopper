@@ -8,7 +8,6 @@ export default function CountriesListPage({
   onToggleVisited,
   onToggleFavorite,
   countriesInfo,
-  name,
 }) {
   const [filteredCountries, setFilteredCountries] = useState(countries);
   return (
@@ -23,7 +22,6 @@ export default function CountriesListPage({
         onToggleVisited={onToggleVisited}
         onToggleFavorite={onToggleFavorite}
         countriesInfo={countriesInfo}
-        name={name}
       />
     </>
   );

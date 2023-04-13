@@ -1,6 +1,14 @@
 import StyledFlag from "../StyledFlag";
 import StyledDiv from "../StyledDiv";
 import Link from "next/link";
+import styled from "styled-components";
+
+const StyledLink = styled.a`
+  font-size: 2rem;
+  position: relative;
+  right: 9rem;
+  top: 1rem;
+`;
 
 export default function CountryDetails({ selectedCountry }) {
   function addSeparators(number) {
@@ -15,8 +23,8 @@ export default function CountryDetails({ selectedCountry }) {
 
   return (
     <>
-      <Link href="/list">🔙</Link>
       <StyledDiv isOnDetailsPage>
+        <StyledLink href="/list">🔙</StyledLink>
         <h1>{selectedCountry.name.common}</h1>
         <p>
           <strong>Continent:</strong> {selectedCountry.continents}
@@ -41,13 +49,7 @@ export default function CountryDetails({ selectedCountry }) {
             <strong>Currency: </strong>
             {selectedCountry.currencies &&
               Object.values(selectedCountry.currencies).map(
-                (currency, index) => (
-                  <span key={index}>
-                    {currency.name} <br />
-                    <strong>Symbol: </strong>
-                    {currency.symbol}
-                  </span>
-                )
+                (currency, index) => <span key={index}>{currency.name}</span>
               )}
           </p>
         }
