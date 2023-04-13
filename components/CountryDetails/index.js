@@ -8,7 +8,7 @@ export default function CountryDetails({ selectedCountry }) {
   }
   if (!selectedCountry) return <h2>is Loading</h2>;
   const languagesWithSeparators =
-    selectedCountry.languages?.length > 0 &&
+    selectedCountry.languages &&
     Object.values(selectedCountry.languages).join(", ");
 
   const timezoneWithSeparators = selectedCountry.timezones?.join(", ");
@@ -39,7 +39,7 @@ export default function CountryDetails({ selectedCountry }) {
         {
           <p>
             <strong>Currency: </strong>
-            {selectedCountry.currencies?.length > 0 &&
+            {selectedCountry.currencies &&
               Object.values(selectedCountry.currencies).map(
                 (currency, index) => (
                   <span key={index}>
