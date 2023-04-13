@@ -1,15 +1,6 @@
 import StyledDiv from "../StyledDiv";
+import StyledProgressBar from "../StyledProgressBar";
 import StyledCounterContinent from "./StyledCounterContinent";
-import styled from "styled-components";
-
-const StyledProgressBar = styled.div`
-  margin-top: 1rem;
-  border: 1px solid black;
-  border-radius: 0.5rem;
-  height: 1rem;
-  width: 15rem;
-  background-color: var(--tourquoise);
-`;
 
 export default function CounterContinent({ countries, countriesInfo }) {
   const allContinents = [
