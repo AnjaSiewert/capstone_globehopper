@@ -9,7 +9,7 @@ export default function HomePage({ countries, countriesInfo }) {
   return (
     <>
       <Header headline="globehopper" />
-      <StyledDiv>
+      <StyledDiv isShowingImage>
         <Image
           src={worldMap}
           height={250}

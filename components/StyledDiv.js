@@ -20,6 +20,11 @@ const StyledDiv = styled.div`
     css`
       margin-top: 0;
     `}
+    ${(props) =>
+    props.isShowingImage &&
+    css`
+      margin-top: 7rem;
+    `}
 `;
 
 export default StyledDiv;

@@ -19,7 +19,7 @@ export default function VisitedCountriesPage({
   return (
     <>
       <Header headline="explored" />
-      <StyledList>
+      <StyledList isOnCard>
         {visitedCountries.map((country) => {
           return (
             <>

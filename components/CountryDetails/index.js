@@ -1,6 +1,5 @@
 import StyledFlag from "../StyledFlag";
 import StyledDiv from "../StyledDiv";
-import Link from "next/link";
 import styled from "styled-components";
 
 const StyledLink = styled.a`

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const StyledSeachbar = styled.input`
-  margin-top: 1rem;
+  margin-top: 6rem;
   margin-left: 1rem;
   border: 2px solid black;
   border-radius: 5px;

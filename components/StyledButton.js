@@ -4,8 +4,8 @@ const StyledButton = styled.div`
   ${(props) =>
     props.positionSVG &&
     css`
-      position: relative;
-      left: 7.5rem;
+      display: flex;
+      justify-content: center;
     `}
   background: transparent;
   border: none;

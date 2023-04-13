@@ -19,7 +19,7 @@ export default function FavoriteCountriesPage({
   return (
     <>
       <Header headline="to explore" />
-      <StyledList>
+      <StyledList isOnCard>
         {favoriteCountries.map((country) => {
           return (
             <>
