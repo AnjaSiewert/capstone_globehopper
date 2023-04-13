@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
   ${(props) =>
     props.isOnDetailsPage &&
     css`
-      margin-top: 0;
+      margin-top: 5rem;
     `}
     ${(props) =>
     props.isShowingImage &&

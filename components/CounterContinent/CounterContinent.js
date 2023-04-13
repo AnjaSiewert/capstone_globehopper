@@ -1,4 +1,5 @@
 import StyledDiv from "../StyledDiv";
+import StyledProgressBar from "../StyledProgressBar";
 import StyledCounterContinent from "./StyledCounterContinent";
 
 export default function CounterContinent({ countries, countriesInfo }) {
@@ -50,6 +51,10 @@ export default function CounterContinent({ countries, countriesInfo }) {
       name: continent.name,
       visitedCount: visitedCountries.length,
       totalCount: continent.countries.length,
+      percent: (
+        (visitedCountries.length / continent.countries.length) *
+        100
+      ).toFixed(2),
     };
   });
 
@@ -67,6 +72,9 @@ export default function CounterContinent({ countries, countriesInfo }) {
             <article>
               <StyledCounterContinent>
                 {continent.visitedCount} / {continent.totalCount}{" "}
+                <StyledProgressBar
+                  percent={continent.percent}
+                ></StyledProgressBar>
               </StyledCounterContinent>
             </article>
           </StyledDiv>
