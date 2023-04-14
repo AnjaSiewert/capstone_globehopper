@@ -3,9 +3,9 @@ import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
 import Form from "../components/Form";
 import Header from "../components/Header/Header";
-import StyledButton from "../components/StyledButton";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
+import StyledSVG from "../components/StyledSVG";
 
 export default function FavoriteCountriesPage({
   countries,
@@ -38,13 +38,13 @@ export default function FavoriteCountriesPage({
                   onToggleFavorite={onToggleFavorite}
                   countriesInfo={countriesInfo}
                 />
-                <StyledButton positionSVG>
+                <StyledSVG positionSVG>
                   <FavoriteButton
                     onToggleFavorite={onToggleFavorite}
                     countriesInfo={countriesInfo}
                     name={country.name.common}
                   />
-                </StyledButton>
+                </StyledSVG>
                 {isCountrySelected && <Form />}
               </StyledListElement>
               <button
@@ -52,7 +52,7 @@ export default function FavoriteCountriesPage({
                   setSelectedCountry(!isCountrySelected && country.name.common)
                 }
               >
-                {isCountrySelected ? "Hide form" : "Add details"}
+                {isCountrySelected ? "Hide form" : "Plan  my trip"}
               </button>
             </>
           );

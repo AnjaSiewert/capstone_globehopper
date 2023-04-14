@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.div`
+const StyledSVG = styled.div`
   ${(props) =>
     props.positionSVG &&
     css`
@@ -11,4 +11,4 @@ const StyledButton = styled.div`
   border: none;
 `;
 
-export default StyledButton;
+export default StyledSVG;
