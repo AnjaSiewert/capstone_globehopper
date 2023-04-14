@@ -75,11 +75,9 @@ export default function Form() {
             name="allowed-days"
             aria-label="enter allowed days for visa"
             onChange={(event) => {
-              if (event.target.value > 365) {
-                setIsVisaValid(false);
-              } else {
-                setIsVisaValid(true);
-              }
+              event.target.value > 365
+                ? setIsVisaValid(false)
+                : setIsVisaValid(true);
             }}
           ></input>
           {isVisaValid ? (
