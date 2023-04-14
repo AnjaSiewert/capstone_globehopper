@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
 import Form from "../components/Form";
@@ -11,6 +12,8 @@ export default function FavoriteCountriesPage({
   countriesInfo,
   onToggleFavorite,
 }) {
+  const [showForm, setShowForm] = useState(false);
+
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
   const favoriteCountries = countries.filter((country) =>
@@ -41,8 +44,11 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 </StyledButton>
-                <Form />
+                {showForm && <Form />}
               </StyledListElement>
+              <button onClick={() => setShowForm(!showForm)}>
+                {showForm === false ? "Click to add details" : "hide form"}
+              </button>
             </>
           );
         })}
