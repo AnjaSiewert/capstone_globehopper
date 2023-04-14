@@ -41,8 +41,8 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 </StyledButton>
+                <Form />
               </StyledListElement>
-              <Form />
             </>
           );
         })}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const StyledForm = styled.form`
   display: flex;
@@ -9,44 +10,43 @@ const StyledForm = styled.form`
 const StyledFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 `;
 
 export default function Form() {
+  const [isVisaValid, setIsVisaValid] = useState(true);
+
   return (
     <>
       <StyledForm>
         <h2>Plan my trip</h2>
         <StyledFieldset>
           <legend>
-            <strong>Travel Details</strong>
+            <h4>Travel Details</h4>
           </legend>
-          <label htmlFor="date">When</label>
-          <input type="date" id="date" name="date" />
-          <label htmlFor="budjet">approx. budget</label>
-          <input type="number" id="budjet" name="budjet" />
+          <label htmlFor="date">When:</label>
+          <input type="month" id="date" name="date" min="2023-04" />
         </StyledFieldset>
         <StyledFieldset>
           <legend>
-            <strong>Required checks</strong>
+            <h4>Required checks:</h4>
           </legend>
           <label htmlFor="passport">
-            Passport
+            Passport:
             <input type="radio" id="passport" name="passport" />
             YES
             <input type="radio" id="passport" name="passport" />
             NO
-            <br />
           </label>
           <label htmlFor="vaccination">
-            Vaccination
+            Vaccination:
             <input type="radio" id="vaccination" name="vaccination" />
             YES
             <input type="radio" id="vaccination" name="vaccination" />
             NO
-            <br />
           </label>
           <label htmlFor="visa">
-            Visa
+            Visa:
             <input type="radio" id="visa" name="visa" />
             YES
             <input type="radio" id="visa" name="visa" />
@@ -55,18 +55,41 @@ export default function Form() {
         </StyledFieldset>
         <StyledFieldset>
           <legend>
-            <strong>Additional checks</strong>
+            <h4>Additional checks:</h4>
           </legend>
-          <label htmlFor="allowed-days">Allowed days(Visa)</label>
-          <input type="number" id="allowed-days"></input>
-          {/*     <br />
+          <label htmlFor="allowed-days">Allowed days(Visa):</label>
+          <input
+            type="number"
+            id="allowed-days"
+            name="allowed-days"
+            onChange={(event) => {
+              if (event.target.value > 365) {
+                setIsVisaValid(false);
+              } else {
+                setIsVisaValid(true);
+              }
+            }}
+          ></input>
+          {isVisaValid ? (
+            <i>Max-value: 365</i>
+          ) : (
+            <i>You are above max-value(365)</i>
+          )}
+          <br />
+          Notes:
           <label htmlFor="notes">
-            Notes
-            <br />
-            <textarea id="notes" name="notes" rows="4" cols="20"></textarea>
-          </label> */}
+            <textarea
+              id="notes"
+              name="notes"
+              rows="4"
+              cols="20"
+              maxLength={400}
+            ></textarea>
+          </label>
         </StyledFieldset>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled>
+          Submit
+        </button>
       </StyledForm>
     </>
   );
