@@ -12,7 +12,7 @@ export default function FavoriteCountriesPage({
   countriesInfo,
   onToggleFavorite,
 }) {
-  const [showForm, setShowForm] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
@@ -25,6 +25,7 @@ export default function FavoriteCountriesPage({
       <Header headline="to explore" />
       <StyledList isOnCard>
         {favoriteCountries.map((country) => {
+          const isCountrySelected = selectedCountry === country.name.common;
           return (
             <>
               <StyledListElement key={country.name}>
@@ -44,10 +45,14 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 </StyledButton>
-                {showForm && <Form />}
+                {isCountrySelected && <Form />}
               </StyledListElement>
-              <button onClick={() => setShowForm(!showForm)}>
-                {showForm === false ? "Click to add details" : "hide form"}
+              <button
+                onClick={() =>
+                  setSelectedCountry(!isCountrySelected && country.name.common)
+                }
+              >
+                {isCountrySelected ? "Hide form" : "Add details"}
               </button>
             </>
           );
