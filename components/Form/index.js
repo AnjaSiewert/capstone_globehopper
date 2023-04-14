@@ -15,6 +15,11 @@ const StyledFieldset = styled.fieldset`
 
 export default function Form() {
   const [isVisaValid, setIsVisaValid] = useState(true);
+  const [text, setText] = useState("");
+
+  function handleChange(event) {
+    setText(event.target.value);
+  }
 
   return (
     <>
@@ -84,8 +89,11 @@ export default function Form() {
               rows="4"
               cols="20"
               maxLength={400}
+              value={text}
+              onChange={handleChange}
             ></textarea>
           </label>
+          <i>Characters left: {400 - text.length}/400</i>
         </StyledFieldset>
         <button type="submit" disabled>
           Submit
