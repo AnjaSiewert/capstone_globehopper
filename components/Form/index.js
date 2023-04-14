@@ -80,11 +80,9 @@ export default function Form() {
                 : setIsVisaValid(true);
             }}
           ></input>
-          {isVisaValid ? (
-            <i>Max-value: 365</i>
-          ) : (
-            <i>You are above max-value(365)</i>
-          )}
+          <i>
+            {isVisaValid ? "Max-value: 365" : "You are above max-value of 365"}
+          </i>
           <br />
           Notes:
           <label htmlFor="notes">
