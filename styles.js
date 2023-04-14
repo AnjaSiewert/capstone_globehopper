@@ -21,4 +21,19 @@ export default createGlobalStyle`
     text-decoration: none;
     color: black;
   }
+
+  fieldset {
+    border: none;
+  }
+
+  label {
+    display: flex;
+    justify-content: space-evenly;
+    
+  }
+
+  legend {
+    text-align: center;
+  }
+
 `;

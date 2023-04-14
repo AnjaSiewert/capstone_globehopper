@@ -13,7 +13,6 @@ const StyledListElement = styled.li`
 
   list-style: none;
   margin: 0.5rem;
-
   border: 1px solid grey;
   border-radius: 1rem;
 `;
