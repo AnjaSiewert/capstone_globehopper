@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import StyledButton from "../StyledButton";
 
 const StyledForm = styled.form`
   display: flex;
@@ -99,9 +100,9 @@ export default function Form() {
           </label>
           <i>Characters left: {400 - text.length}/400</i>
         </StyledFieldset>
-        <button type="submit" aria-label="submit" disabled>
+        <StyledButton type="submit" aria-label="submit" disabled>
           Submit
-        </button>
+        </StyledButton>
       </StyledForm>
     </>
   );

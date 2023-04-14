@@ -6,6 +6,7 @@ import Header from "../components/Header/Header";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 import StyledSVG from "../components/StyledSVG";
+import StyledButton from "../components/StyledButton";
 
 export default function FavoriteCountriesPage({
   countries,
@@ -28,7 +29,7 @@ export default function FavoriteCountriesPage({
           const isCountrySelected = selectedCountry === country.name.common;
           return (
             <>
-              <StyledListElement key={country.name}>
+              <StyledListElement isOnFavoritesPage key={country.name}>
                 <CountriesPreview
                   name={country.name.common}
                   capital={country.capital}
@@ -46,14 +47,17 @@ export default function FavoriteCountriesPage({
                   />
                 </StyledSVG>
                 {isCountrySelected && <Form />}
+                <StyledButton
+                  isHidingForm
+                  onClick={() =>
+                    setSelectedCountry(
+                      !isCountrySelected && country.name.common
+                    )
+                  }
+                >
+                  {isCountrySelected ? "Hide form" : "Plan  my trip"}
+                </StyledButton>
               </StyledListElement>
-              <button
-                onClick={() =>
-                  setSelectedCountry(!isCountrySelected && country.name.common)
-                }
-              >
-                {isCountrySelected ? "Hide form" : "Plan  my trip"}
-              </button>
             </>
           );
         })}
