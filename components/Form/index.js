@@ -23,14 +23,20 @@ export default function Form() {
 
   return (
     <>
-      <StyledForm>
+      <StyledForm aria-label="Add own entries">
         <h2>Plan my trip</h2>
         <StyledFieldset>
           <legend>
             <h4>Travel Details</h4>
           </legend>
           <label htmlFor="date">When:</label>
-          <input type="month" id="date" name="date" min="2023-04" />
+          <input
+            type="month"
+            id="date"
+            name="date"
+            min="2023-04"
+            aria-label="select travel date"
+          />
         </StyledFieldset>
         <StyledFieldset>
           <legend>
@@ -67,6 +73,7 @@ export default function Form() {
             type="number"
             id="allowed-days"
             name="allowed-days"
+            aria-label="enter allowed days for visa"
             onChange={(event) => {
               if (event.target.value > 365) {
                 setIsVisaValid(false);
@@ -91,11 +98,12 @@ export default function Form() {
               maxLength={400}
               value={text}
               onChange={handleChange}
+              aria-label="enter additional notes"
             ></textarea>
           </label>
           <i>Characters left: {400 - text.length}/400</i>
         </StyledFieldset>
-        <button type="submit" disabled>
+        <button type="submit" aria-label="submit" disabled>
           Submit
         </button>
       </StyledForm>
