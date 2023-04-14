@@ -1,5 +1,6 @@
 import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
+import Form from "../components/Form";
 import Header from "../components/Header/Header";
 import StyledButton from "../components/StyledButton";
 import StyledList from "../components/StyledList";
@@ -41,6 +42,7 @@ export default function FavoriteCountriesPage({
                   />
                 </StyledButton>
               </StyledListElement>
+              <Form />
             </>
           );
         })}
