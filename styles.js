@@ -26,11 +26,6 @@ export default createGlobalStyle`
     border: none;
   }
 
-  label {
-    display: flex;
-    justify-content: space-evenly;
-    
-  }
 
   legend {
     text-align: center;

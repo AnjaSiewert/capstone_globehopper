@@ -11,12 +11,13 @@ const StyledForm = styled.form`
 const StyledFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  align-items: center;
 `;
 
 export default function Form() {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [text, setText] = useState("");
+  const [formData, setFormData] = useState([]);
 
   function handleChange(event) {
     setText(event.target.value);
@@ -24,8 +25,13 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    setFormData(data);
+    //console.log(data);
     event.target.reset();
     event.target.date.focus();
+    setText("");
 
     if (!isVisaValid) {
       alert("You are above max-value of 365");
@@ -50,29 +56,48 @@ export default function Form() {
             required
           />
         </StyledFieldset>
+
+        <h4>Required checks:</h4>
         <StyledFieldset>
           <legend>
-            <h4>Required checks:</h4>
+            <span>Passport:</span>
           </legend>
-          <label htmlFor="passport">
-            Passport:
-            <input type="radio" id="passport" name="passport" required />
+          <label htmlFor="passport-required">
+            <input type="radio" id="passport-required" name="passport" />
             YES
-            <input type="radio" id="passport" name="passport" required />
+          </label>
+          <label htmlFor="passport-notrequired">
+            <input type="radio" id="passport-notrequired" name="passport" />
             NO
           </label>
-          <label htmlFor="vaccination">
-            Vaccination:
-            <input type="radio" id="vaccination" name="vaccination" required />
+        </StyledFieldset>
+        <StyledFieldset>
+          <legend>
+            <span> Vaccination:</span>
+          </legend>
+          <label htmlFor="vaccination-required">
+            <input type="radio" id="vaccination-required" name="vaccination" />
             YES
-            <input type="radio" id="vaccination" name="vaccination" required />
+          </label>
+          <label htmlFor="vaccination-notrequired">
+            <input
+              type="radio"
+              id="vaccination-notrequired"
+              name="vaccination"
+            />
             NO
           </label>
-          <label htmlFor="visa">
-            Visa:
-            <input type="radio" id="visa" name="visa" required />
+        </StyledFieldset>
+        <StyledFieldset>
+          <legend>
+            <span> Visa:</span>
+          </legend>
+          <label htmlFor="visa-required">
+            <input type="radio" id="visa-required" name="visa" />
             YES
-            <input type="radio" id="visa" name="visa" required />
+          </label>
+          <label htmlFor="visa-notrequired">
+            <input type="radio" id="visa-notrequired" name="visa" />
             NO
           </label>
         </StyledFieldset>
@@ -86,6 +111,7 @@ export default function Form() {
             id="allowed-days"
             name="allowed-days"
             aria-label="enter allowed days for visa"
+            pattern="[0-9]{1,3}"
             onChange={(event) => {
               event.target.value > 365
                 ? setIsVisaValid(false)
