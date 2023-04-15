@@ -11,6 +11,13 @@ const StyledList = styled.ul`
     css`
       margin-top: 7rem;
     `}
+  ${(props) =>
+    props.isOnEntryList &&
+    css`
+      gap: 0.5rem;
+      margin: 1rem;
+      align-items: center;
+    `}
 `;
 
 export default StyledList;
