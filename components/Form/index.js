@@ -1,23 +1,13 @@
-import styled from "styled-components";
 import { useState } from "react";
 import StyledButton from "../StyledButton";
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledFieldset = styled.fieldset`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import StyledForm from "./StyledForm";
+import StyledFieldset from "./StyledFieldset";
+import Entry from "../Entry";
 
 export default function Form() {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [text, setText] = useState("");
-  const [formData, setFormData] = useState([]);
+  const [entries, setEntries] = useState([]);
 
   function handleChange(event) {
     setText(event.target.value);
@@ -27,12 +17,11 @@ export default function Form() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    setFormData(data);
-    //console.log(data);
+    setEntries(data);
+    console.log(data);
     event.target.reset();
     event.target.date.focus();
     setText("");
-
     if (!isVisaValid) {
       alert("You are above max-value of 365");
     }
@@ -56,18 +45,27 @@ export default function Form() {
             required
           />
         </StyledFieldset>
-
         <h4>Required checks:</h4>
         <StyledFieldset>
           <legend>
             <span>Passport:</span>
           </legend>
           <label htmlFor="passport-required">
-            <input type="radio" id="passport-required" name="passport" />
+            <input
+              type="radio"
+              id="passport-required"
+              name="passport"
+              value="✅"
+            />
             YES
           </label>
           <label htmlFor="passport-notrequired">
-            <input type="radio" id="passport-notrequired" name="passport" />
+            <input
+              type="radio"
+              id="passport-notrequired"
+              name="passport"
+              value="❌"
+            />
             NO
           </label>
         </StyledFieldset>
@@ -76,7 +74,12 @@ export default function Form() {
             <span> Vaccination:</span>
           </legend>
           <label htmlFor="vaccination-required">
-            <input type="radio" id="vaccination-required" name="vaccination" />
+            <input
+              type="radio"
+              id="vaccination-required"
+              name="vaccination"
+              value="✅"
+            />
             YES
           </label>
           <label htmlFor="vaccination-notrequired">
@@ -84,6 +87,7 @@ export default function Form() {
               type="radio"
               id="vaccination-notrequired"
               name="vaccination"
+              value="❌"
             />
             NO
           </label>
@@ -93,11 +97,11 @@ export default function Form() {
             <span> Visa:</span>
           </legend>
           <label htmlFor="visa-required">
-            <input type="radio" id="visa-required" name="visa" />
+            <input type="radio" id="visa-required" name="visa" value="✅" />
             YES
           </label>
           <label htmlFor="visa-notrequired">
-            <input type="radio" id="visa-notrequired" name="visa" />
+            <input type="radio" id="visa-notrequired" name="visa" value="❌" />
             NO
           </label>
         </StyledFieldset>
@@ -109,7 +113,7 @@ export default function Form() {
           <input
             type="number"
             id="allowed-days"
-            name="allowed-days"
+            name="alloweddays"
             aria-label="enter allowed days for visa"
             pattern="[0-9]{1,3}"
             onChange={(event) => {
@@ -140,6 +144,7 @@ export default function Form() {
         <StyledButton type="submit" aria-label="submit">
           Submit
         </StyledButton>
+        {entries && <Entry entries={entries} />}
       </StyledForm>
     </>
   );
