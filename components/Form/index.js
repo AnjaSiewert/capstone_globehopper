@@ -22,9 +22,19 @@ export default function Form() {
     setText(event.target.value);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    event.target.reset();
+    event.target.date.focus();
+
+    if (!isVisaValid) {
+      alert("You are above max-value of 365");
+    }
+  }
+
   return (
     <>
-      <StyledForm aria-label="Add own entries">
+      <StyledForm onSubmit={handleSubmit} aria-label="Add own entries">
         <h2>Plan my trip</h2>
         <StyledFieldset>
           <legend>
@@ -37,6 +47,7 @@ export default function Form() {
             name="date"
             min="2023-04"
             aria-label="select travel date"
+            required
           />
         </StyledFieldset>
         <StyledFieldset>
@@ -45,23 +56,23 @@ export default function Form() {
           </legend>
           <label htmlFor="passport">
             Passport:
-            <input type="radio" id="passport" name="passport" />
+            <input type="radio" id="passport" name="passport" required />
             YES
-            <input type="radio" id="passport" name="passport" />
+            <input type="radio" id="passport" name="passport" required />
             NO
           </label>
           <label htmlFor="vaccination">
             Vaccination:
-            <input type="radio" id="vaccination" name="vaccination" />
+            <input type="radio" id="vaccination" name="vaccination" required />
             YES
-            <input type="radio" id="vaccination" name="vaccination" />
+            <input type="radio" id="vaccination" name="vaccination" required />
             NO
           </label>
           <label htmlFor="visa">
             Visa:
-            <input type="radio" id="visa" name="visa" />
+            <input type="radio" id="visa" name="visa" required />
             YES
-            <input type="radio" id="visa" name="visa" />
+            <input type="radio" id="visa" name="visa" required />
             NO
           </label>
         </StyledFieldset>
@@ -100,7 +111,7 @@ export default function Form() {
           </label>
           <i>Characters left: {400 - text.length}/400</i>
         </StyledFieldset>
-        <StyledButton type="submit" aria-label="submit" disabled>
+        <StyledButton type="submit" aria-label="submit">
           Submit
         </StyledButton>
       </StyledForm>
