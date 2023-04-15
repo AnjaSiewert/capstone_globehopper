@@ -3,11 +3,14 @@ import StyledButton from "../StyledButton";
 import StyledForm from "./StyledForm";
 import StyledFieldset from "./StyledFieldset";
 import Entry from "../Entry";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function Form() {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [text, setText] = useState("");
-  const [entries, setEntries] = useState([]);
+  const [entries, setEntries] = useLocalStorageState("entries", {
+    defaultValue: [],
+  });
 
   function handleChange(event) {
     setText(event.target.value);
