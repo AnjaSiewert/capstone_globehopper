@@ -3,14 +3,11 @@ import StyledButton from "../StyledButton";
 import StyledForm from "./StyledForm";
 import StyledFieldset from "./StyledFieldset";
 import Entry from "../Entry";
-import useLocalStorageState from "use-local-storage-state";
 
 export default function Form() {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [text, setText] = useState("");
-  const [entries, setEntries] = useLocalStorageState("entries", {
-    defaultValue: [],
-  });
+  const [entries, setEntries] = useState([]);
 
   function handleChange(event) {
     setText(event.target.value);
@@ -21,7 +18,6 @@ export default function Form() {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     setEntries(data);
-    console.log(data);
     event.target.reset();
     event.target.date.focus();
     setText("");
