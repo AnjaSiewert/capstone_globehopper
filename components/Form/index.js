@@ -122,11 +122,12 @@ export default function Form() {
             NO
           </label>
         </StyledFieldset>
+
         <StyledFieldset>
           <legend>
             <h4>Additional checks:</h4>
           </legend>
-          <label htmlFor="allowed-days">Allowed days(Visa):</label>
+          <label htmlFor="allowed-days">Allowed days to stay:</label>
           <input
             type="number"
             id="allowed-days"
