@@ -17,13 +17,15 @@ export default function Form() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+
+    if (data.alloweddays < 0 || data.alloweddays > 365) {
+      alert("The allowed days must be between 0 and 365. Please try again.");
+      return;
+    }
     setEntries(data);
     event.target.reset();
     event.target.date.focus();
     setText("");
-    if (!isVisaValid) {
-      alert("You are above max-value of 365");
-    }
   }
 
   return (
@@ -55,6 +57,7 @@ export default function Form() {
               id="passport-required"
               name="passport"
               value="✅"
+              required
             />
             YES
           </label>
@@ -64,6 +67,7 @@ export default function Form() {
               id="passport-notrequired"
               name="passport"
               value="❌"
+              required
             />
             NO
           </label>
@@ -78,6 +82,7 @@ export default function Form() {
               id="vaccination-required"
               name="vaccination"
               value="✅"
+              required
             />
             YES
           </label>
@@ -87,6 +92,7 @@ export default function Form() {
               id="vaccination-notrequired"
               name="vaccination"
               value="❌"
+              required
             />
             NO
           </label>
@@ -96,11 +102,23 @@ export default function Form() {
             <span> Visa:</span>
           </legend>
           <label htmlFor="visa-required">
-            <input type="radio" id="visa-required" name="visa" value="✅" />
+            <input
+              type="radio"
+              id="visa-required"
+              name="visa"
+              value="✅"
+              required
+            />
             YES
           </label>
           <label htmlFor="visa-notrequired">
-            <input type="radio" id="visa-notrequired" name="visa" value="❌" />
+            <input
+              type="radio"
+              id="visa-notrequired"
+              name="visa"
+              value="❌"
+              required
+            />
             NO
           </label>
         </StyledFieldset>
@@ -122,7 +140,9 @@ export default function Form() {
             }}
           ></input>
           <i>
-            {isVisaValid ? "Max-value: 365" : "You are above max-value of 365"}
+            {isVisaValid
+              ? "Value must be between 1 and 365"
+              : "You are above max-value of 365"}
           </i>
           <br />
           Notes:
