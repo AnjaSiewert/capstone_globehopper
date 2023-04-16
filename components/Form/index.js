@@ -18,7 +18,7 @@ export default function Form() {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    if (data.alloweddays < 0 || data.alloweddays > 365) {
+    if (data.allowedDays < 0 || data.allowedDays > 365) {
       alert("The allowed days must be between 0 and 365. Please try again.");
       return;
     }
@@ -131,7 +131,7 @@ export default function Form() {
           <input
             type="number"
             id="allowed-days"
-            name="alloweddays"
+            name="allowedDays"
             aria-label="enter allowed days for visa"
             pattern="[0-9]{1,3}"
             onChange={(event) => {

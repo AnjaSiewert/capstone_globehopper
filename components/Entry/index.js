@@ -30,9 +30,9 @@ export default function Entry({ entries }) {
           <strong>Visa required:</strong> {entries.visa}
         </li>
       )}
-      {entries.alloweddays && (
+      {entries.allowedDays && (
         <li>
-          <strong>Allowed days:</strong> {entries.alloweddays}
+          <strong>Allowed days:</strong> {entries.allowedDays}
         </li>
       )}
       {entries.notes && (
