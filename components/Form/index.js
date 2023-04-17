@@ -3,11 +3,14 @@ import StyledButton from "../StyledButton";
 import StyledForm from "./StyledForm";
 import StyledFieldset from "./StyledFieldset";
 import Entry from "../Entry";
+import useLocalStorageState from "use-local-storage-state";
 
-export default function Form() {
+export default function Form({ name }) {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [text, setText] = useState("");
-  const [entries, setEntries] = useState([]);
+  const [entries, setEntries] = useLocalStorageState("entries", {
+    defaultValue: [],
+  });
 
   function handleChange(event) {
     setText(event.target.value);
@@ -22,6 +25,7 @@ export default function Form() {
       alert("The allowed days must be between 0 and 365. Please try again.");
       return;
     }
+
     setEntries(data);
     event.target.reset();
     event.target.date.focus();
@@ -36,6 +40,10 @@ export default function Form() {
           <legend>
             <h4>Travel Details</h4>
           </legend>
+          <label htmlFor="name" hidden>
+            Countryname:
+          </label>
+          <input id="name" name="name" value={name} readOnly hidden></input>
           <label htmlFor="date">When:</label>
           <input
             type="month"
@@ -164,7 +172,7 @@ export default function Form() {
         <StyledButton type="submit" aria-label="submit">
           Submit
         </StyledButton>
-        {entries && <Entry entries={entries} />}
+        {entries && <Entry entries={entries} name={name} />}
       </StyledForm>
     </>
   );
