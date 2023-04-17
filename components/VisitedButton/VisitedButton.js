@@ -1,5 +1,5 @@
-import StyledButton from "../StyledButton";
 import Check from "../../public/assets/check.svg";
+import StyledSVG from "../StyledSVG";
 
 const CheckLiked = () => <Check height={32} width={32} fill="red" />;
 
@@ -14,14 +14,14 @@ export default function VisitedButton({
 
   return (
     <>
-      <StyledButton
+      <StyledSVG
         aria-label="Click"
         onClick={() => {
           onToggleVisited(name);
         }}
       >
         {isVisited ? <CheckLiked /> : <Check height={32} width={32} />}
-      </StyledButton>
+      </StyledSVG>
     </>
   );
 }

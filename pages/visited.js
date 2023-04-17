@@ -1,9 +1,9 @@
 import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
 import Header from "../components/Header/Header";
-import StyledButton from "../components/StyledButton";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 import VisitedButton from "../components/VisitedButton/VisitedButton";
+import StyledSVG from "../components/StyledSVG";
 
 export default function VisitedCountriesPage({
   countries,
@@ -33,13 +33,13 @@ export default function VisitedCountriesPage({
                   onToggleVisited={onToggleVisited}
                   countriesInfo={countriesInfo}
                 />
-                <StyledButton positionSVG>
+                <StyledSVG positionSVG>
                   <VisitedButton
                     onToggleVisited={onToggleVisited}
                     countriesInfo={countriesInfo}
                     name={country.name.common}
                   />
-                </StyledButton>
+                </StyledSVG>
               </StyledListElement>
             </>
           );

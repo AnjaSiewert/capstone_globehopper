@@ -1,12 +1,7 @@
-import styled from "styled-components";
 import Star from "../../public/assets/star.svg";
+import StyledSVG from "../StyledSVG";
 
 const StarLiked = () => <Star height={32} width={32} fill="red" />;
-
-const StyledButton = styled.button`
-  background: transparent;
-  border: none;
-`;
 
 export default function FavoriteButton({
   onToggleFavorite,
@@ -19,14 +14,14 @@ export default function FavoriteButton({
 
   return (
     <>
-      <StyledButton
+      <StyledSVG
         aria-label="Click"
         onClick={() => {
           onToggleFavorite(name);
         }}
       >
         {isFavorite ? <StarLiked /> : <Star height={32} width={32} />}
-      </StyledButton>
+      </StyledSVG>
     </>
   );
 }

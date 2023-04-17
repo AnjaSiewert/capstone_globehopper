@@ -10,6 +10,12 @@ const StyledListElement = styled.li`
       padding-left: 0.5rem;
       background-color: var(--lightgrey);
     `}
+  ${(props) =>
+    props.isOnFavoritesPage &&
+    css`
+      display: flex;
+      flex-direction: column;
+    `}
 
   list-style: none;
   margin: 0.5rem;

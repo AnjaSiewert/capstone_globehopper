@@ -1,14 +1,12 @@
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
+  border-radius: 1rem;
   ${(props) =>
-    props.positionSVG &&
+    props.isHidingForm &&
     css`
-      display: flex;
-      justify-content: center;
+      margin: 0.5rem 6rem 0.5rem 6rem;
     `}
-  background: transparent;
-  border: none;
 `;
 
 export default StyledButton;
