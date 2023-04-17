@@ -7,7 +7,11 @@ export default function Entry({ entries, name }) {
     year: "numeric",
   });
 
-  const selectedCountry = entries.name === name;
+  const selectedCountry = entries.find((entry) => entry.name === name);
+  console.log("name: ", name);
+  console.log("entries: ", entries);
+  console.log("entries.name: ", entries[0].name);
+  console.log("selectedCountry: ", selectedCountry);
 
   return (
     selectedCountry && (

@@ -26,11 +26,17 @@ export default function Form({ name }) {
       return;
     }
 
-    setEntries(data);
+    handleAddEntry(data);
     event.target.reset();
     event.target.date.focus();
     setText("");
   }
+
+  function handleAddEntry(newEntry) {
+    setEntries([{ ...newEntry }, ...entries]);
+  }
+
+  //console.log("entries", entries);
 
   return (
     <>
@@ -172,7 +178,7 @@ export default function Form({ name }) {
         <StyledButton type="submit" aria-label="submit">
           Submit
         </StyledButton>
-        {entries && <Entry entries={entries} name={name} />}
+        <Entry entries={entries} name={name} />
       </StyledForm>
     </>
   );
