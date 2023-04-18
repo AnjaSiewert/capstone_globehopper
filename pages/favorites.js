@@ -7,12 +7,17 @@ import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 import StyledSVG from "../components/StyledSVG";
 import StyledButton from "../components/StyledButton";
+import useLocalStorageState from "use-local-storage-state";
+import Entry from "../components/Entry";
 
 export default function FavoriteCountriesPage({
   countries,
   countriesInfo,
   onToggleFavorite,
 }) {
+  const [entries, setEntries] = useLocalStorageState("entries", {
+    defaultValue: [],
+  });
   const [selectedCountry, setSelectedCountry] = useState("");
 
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
@@ -20,6 +25,10 @@ export default function FavoriteCountriesPage({
   const favoriteCountries = countries.filter((country) =>
     listFavoriteCountries.find((info) => info.name === country.name.common)
   );
+
+  function handleAddEntry(newEntry) {
+    setEntries([{ ...newEntry }, ...entries]);
+  }
 
   return (
     <>
@@ -46,18 +55,26 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 </StyledSVG>
-                {isCountrySelected && <Form name={country.name.common} />}
+                {isCountrySelected && (
+                  <Form
+                    onAddEntry={handleAddEntry}
+                    entries={entries}
+                    name={country.name.common}
+                  />
+                )}
                 <StyledButton
                   isHidingForm
+                  disabled={isCountrySelected}
                   onClick={() =>
                     setSelectedCountry(
                       !isCountrySelected && country.name.common
                     )
                   }
                 >
-                  {isCountrySelected ? "Hide form" : "Plan  my trip"}
+                  Plan my trip
                 </StyledButton>
               </StyledListElement>
+              <Entry entries={entries} name={country.name.common} />
             </>
           );
         })}
