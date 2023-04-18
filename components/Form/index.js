@@ -2,8 +2,6 @@ import { useState } from "react";
 import StyledButton from "../StyledButton";
 import StyledForm from "./StyledForm";
 import StyledFieldset from "./StyledFieldset";
-import Entry from "../Entry";
-import useLocalStorageState from "use-local-storage-state";
 
 export default function Form({ name, entries, onAddEntry }) {
   const [isVisaValid, setIsVisaValid] = useState(true);

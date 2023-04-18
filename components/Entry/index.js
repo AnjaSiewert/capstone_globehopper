@@ -8,7 +8,7 @@ export default function Entry({ entries, name }) {
       <StyledList isOnEntryList>
         {selectedCountry.name && (
           <li>
-            <strong>Country:</strong> {selectedCountry.name}
+            <strong>{selectedCountry.name.toUpperCase()}</strong>
           </li>
         )}
         {selectedCountry.date && (
