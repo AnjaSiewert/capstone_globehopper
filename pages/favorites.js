@@ -46,7 +46,7 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 </StyledSVG>
-                {isCountrySelected && <Form />}
+                {isCountrySelected && <Form name={country.name.common} />}
                 <StyledButton
                   isHidingForm
                   onClick={() =>
