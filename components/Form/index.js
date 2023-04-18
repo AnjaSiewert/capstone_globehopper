@@ -36,8 +36,6 @@ export default function Form({ name }) {
     setEntries([{ ...newEntry }, ...entries]);
   }
 
-  //console.log("entries", entries);
-
   return (
     <>
       <StyledForm onSubmit={handleSubmit} aria-label="Add own entries">
