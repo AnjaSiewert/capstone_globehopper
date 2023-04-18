@@ -6,6 +6,11 @@ export default function Entry({ entries, name }) {
   return (
     selectedCountry && (
       <StyledList isOnEntryList>
+        {selectedCountry.name && (
+          <li>
+            <strong>Country:</strong> {selectedCountry.name}
+          </li>
+        )}
         {selectedCountry.date && (
           <li>
             <strong>When:</strong>{" "}
