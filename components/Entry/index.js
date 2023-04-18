@@ -1,50 +1,44 @@
 import StyledList from "../StyledList";
 
 export default function Entry({ entries, name }) {
-  const date = new Date(entries.date);
-  const monthYear = date.toLocaleString("en-US", {
-    month: "long",
-    year: "numeric",
-  });
-
   const selectedCountry = entries.find((entry) => entry.name === name);
-  console.log("name: ", name);
-  console.log("entries: ", entries);
-  console.log("entries.name: ", entries[0].name);
-  console.log("selectedCountry: ", selectedCountry);
 
   return (
     selectedCountry && (
       <StyledList isOnEntryList>
-        {entries.date && (
+        {selectedCountry.date && (
           <li>
-            <strong>When:</strong> {monthYear}
+            <strong>When:</strong>{" "}
+            {new Date(selectedCountry.date).toLocaleString("en-US", {
+              month: "long",
+              year: "numeric",
+            })}
           </li>
         )}
-        {entries.passport && (
+        {selectedCountry.passport && (
           <li>
-            <strong>Passport required:</strong> {entries.passport}
+            <strong>Passport required:</strong> {selectedCountry.passport}
           </li>
         )}
-        {entries.vaccination && (
+        {selectedCountry.vaccination && (
           <li>
             <strong>Vaccination required:</strong>
-            {entries.vaccination}
+            {selectedCountry.vaccination}
           </li>
         )}
-        {entries.visa && (
+        {selectedCountry.visa && (
           <li>
-            <strong>Visa required:</strong> {entries.visa}
+            <strong>Visa required:</strong> {selectedCountry.visa}
           </li>
         )}
-        {entries.allowedDays && (
+        {selectedCountry.allowedDays && (
           <li>
-            <strong>Allowed days:</strong> {entries.allowedDays}
+            <strong>Allowed days:</strong> {selectedCountry.allowedDays}
           </li>
         )}
-        {entries.notes && (
+        {selectedCountry.notes && (
           <li>
-            <strong>Notes:</strong> {entries.notes}
+            <strong>Notes:</strong> {selectedCountry.notes}
           </li>
         )}
       </StyledList>
