@@ -3,7 +3,7 @@ import StyledButton from "../StyledButton";
 import StyledForm from "./StyledForm";
 import StyledFieldset from "./StyledFieldset";
 
-export default function Form({ name, entries, onAddEntry }) {
+export default function Form({ name, onAddEntry }) {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [text, setText] = useState("");
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);

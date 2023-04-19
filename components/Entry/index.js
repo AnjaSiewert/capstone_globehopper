@@ -1,6 +1,7 @@
+import StyledButton from "../StyledButton";
 import StyledList from "../StyledList";
 
-export default function Entry({ entries, name }) {
+export default function Entry({ entries, name, onEditEntry }) {
   const selectedCountry = entries.find((entry) => entry.name === name);
 
   return (
@@ -46,6 +47,7 @@ export default function Entry({ entries, name }) {
             <strong>Notes:</strong> {selectedCountry.notes}
           </li>
         )}
+        <StyledButton onClick={onEditEntry}>Edit</StyledButton>
       </StyledList>
     )
   );

@@ -30,6 +30,8 @@ export default function FavoriteCountriesPage({
     setEntries([{ ...newEntry }, ...entries]);
   }
 
+  function handleEditEntry() {}
+
   return (
     <>
       <Header headline="to explore" />
@@ -58,7 +60,6 @@ export default function FavoriteCountriesPage({
                 {isCountrySelected && (
                   <Form
                     onAddEntry={handleAddEntry}
-                    entries={entries}
                     name={country.name.common}
                   />
                 )}
@@ -73,7 +74,11 @@ export default function FavoriteCountriesPage({
                   {isCountrySelected ? "Hide form" : "Plan my trip"}
                 </StyledButton>
               </StyledListElement>
-              <Entry entries={entries} name={country.name.common} />
+              <Entry
+                entries={entries}
+                name={country.name.common}
+                onEditEntry={handleEditEntry}
+              />
             </>
           );
         })}
