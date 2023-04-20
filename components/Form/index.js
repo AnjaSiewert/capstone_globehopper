@@ -23,8 +23,6 @@ export default function Form({ name, onAddEntry }) {
     }
 
     onAddEntry(data);
-    event.target.reset();
-    event.target.date.focus();
     setText("");
     setIsFormSubmitted(true);
   }

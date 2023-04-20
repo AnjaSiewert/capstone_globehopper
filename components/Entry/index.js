@@ -21,8 +21,6 @@ export default function Entry({ entries, name, onEditEntry, country }) {
     }
 
     onEditEntry(country, data);
-    event.target.reset();
-    event.target.date.focus();
     setIsEditing(!isEditing);
   }
 
