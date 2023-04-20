@@ -33,7 +33,6 @@ export default function FavoriteCountriesPage({
   }
 
   function handleEditEntry(country, updatedEntry) {
-    console.log(updatedEntry);
     setEntries(
       entries.map((entry) => {
         const entryToEdit = entry.name === country.name.common;
