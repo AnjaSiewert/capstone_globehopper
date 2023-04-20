@@ -9,6 +9,7 @@ import StyledSVG from "../components/StyledSVG";
 import StyledButton from "../components/StyledButton";
 import useLocalStorageState from "use-local-storage-state";
 import Entry from "../components/Entry";
+import { Fragment } from "react";
 
 export default function FavoriteCountriesPage({
   countries,
@@ -31,10 +32,6 @@ export default function FavoriteCountriesPage({
     entry.name === favoriteCountries.name;
   });
 
-  console.log("favorite", favoriteCountries);
-  console.log("selected", selectedCountry);
-  console.log("to edit", countryToEdit);
-
   function handleAddEntry(newEntry) {
     setEntries([{ ...newEntry }, ...entries]);
   }
@@ -50,8 +47,8 @@ export default function FavoriteCountriesPage({
         {favoriteCountries.map((country) => {
           const isCountrySelected = selectedCountry === country.name.common;
           return (
-            <>
-              <StyledListElement isOnFavoritesPage key={country.name}>
+            <Fragment key={country.cca2}>
+              <StyledListElement isOnFavoritesPage>
                 <CountriesPreview
                   name={country.name.common}
                   capital={country.capital}
@@ -92,7 +89,7 @@ export default function FavoriteCountriesPage({
                 countryToEdit={countryToEdit}
               />
               <StyledButton onClick={handleEditEntry}>Edit</StyledButton>
-            </>
+            </Fragment>
           );
         })}
       </StyledList>
