@@ -4,6 +4,7 @@ import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 import VisitedButton from "../components/VisitedButton/VisitedButton";
 import StyledSVG from "../components/StyledSVG";
+import { Fragment } from "react";
 
 export default function VisitedCountriesPage({
   countries,
@@ -22,7 +23,7 @@ export default function VisitedCountriesPage({
       <StyledList isOnCard>
         {visitedCountries.map((country) => {
           return (
-            <>
+            <Fragment key={country.cca2}>
               <StyledListElement key={country.name}>
                 <CountriesPreview
                   name={country.name.common}
@@ -41,7 +42,7 @@ export default function VisitedCountriesPage({
                   />
                 </StyledSVG>
               </StyledListElement>
-            </>
+            </Fragment>
           );
         })}
       </StyledList>

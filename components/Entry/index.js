@@ -7,6 +7,7 @@ import StyledFieldset from "../Form/StyledFieldset";
 export default function Entry({ entries, name, onEditEntry, country }) {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  const [remainingCharacters, setRemainingCharacters] = useState(400);
   const selectedCountry = entries.find((entry) => entry.name === name);
 
   function handleSubmit(event) {
@@ -23,6 +24,10 @@ export default function Entry({ entries, name, onEditEntry, country }) {
     event.target.reset();
     event.target.date.focus();
     setIsEditing(!isEditing);
+  }
+
+  function handleCharacterLengthChange(event) {
+    setRemainingCharacters(400 - event.target.value.length);
   }
 
   return (
@@ -78,7 +83,7 @@ export default function Entry({ entries, name, onEditEntry, country }) {
         {isEditing && (
           <>
             <StyledForm onSubmit={handleSubmit} aria-label="Add own entries">
-              <h2>Edit my planed trip</h2>
+              <h2>Edit my planned trip</h2>
               <StyledFieldset>
                 <legend>
                   <h4>Travel Details</h4>
@@ -91,6 +96,7 @@ export default function Entry({ entries, name, onEditEntry, country }) {
                   min="2023-04"
                   aria-label="select travel date"
                   required
+                  defaultValue={selectedCountry.date}
                 />
               </StyledFieldset>
               <h4>Required checks:</h4>
@@ -221,11 +227,14 @@ export default function Entry({ entries, name, onEditEntry, country }) {
                     maxLength={400}
                     aria-label="enter additional notes"
                     defaultValue={selectedCountry.notes}
+                    onChange={handleCharacterLengthChange}
                   />
+                  <br />
+                  <i>Characters left: {remainingCharacters}/400</i>
                 </label>
               </StyledFieldset>
               <StyledButton type="submit" aria-label="submit">
-                save your trip
+                Save your trip
               </StyledButton>
             </StyledForm>
           </>

@@ -65,7 +65,7 @@ export default function FavoriteCountriesPage({
                 <CountriesPreview
                   name={country.name.common}
                   capital={country.capital}
-                  continent={country.region}
+                  continent={country.continents}
                   flag={country.flag}
                   countries={favoriteCountries}
                   onToggleFavorite={onToggleFavorite}
