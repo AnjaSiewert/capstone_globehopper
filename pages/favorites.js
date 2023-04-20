@@ -19,6 +19,7 @@ export default function FavoriteCountriesPage({
     defaultValue: [],
   });
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
 
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
@@ -26,11 +27,21 @@ export default function FavoriteCountriesPage({
     listFavoriteCountries.find((info) => info.name === country.name.common)
   );
 
+  const countryToEdit = entries.filter((entry) => {
+    entry.name === favoriteCountries.name;
+  });
+
+  console.log("favorite", favoriteCountries);
+  console.log("selected", selectedCountry);
+  console.log("to edit", countryToEdit);
+
   function handleAddEntry(newEntry) {
     setEntries([{ ...newEntry }, ...entries]);
   }
 
-  function handleEditEntry() {}
+  function handleEditEntry() {
+    setIsEditing(true);
+  }
 
   return (
     <>
@@ -77,8 +88,10 @@ export default function FavoriteCountriesPage({
               <Entry
                 entries={entries}
                 name={country.name.common}
-                onEditEntry={handleEditEntry}
+                isEditing={isEditing}
+                countryToEdit={countryToEdit}
               />
+              <StyledButton onClick={handleEditEntry}>Edit</StyledButton>
             </>
           );
         })}
