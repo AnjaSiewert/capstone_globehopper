@@ -3,6 +3,7 @@ import useSWR from "swr";
 import Layout from "../components/Layout/Layout";
 import useLocalStorageState from "use-local-storage-state";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }) {
     "countriesInfo",
     { defaultValue: [] }
   );
+
   const router = useRouter();
   const { name } = router.query;
 

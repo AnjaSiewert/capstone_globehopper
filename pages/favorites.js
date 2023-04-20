@@ -19,8 +19,8 @@ export default function FavoriteCountriesPage({
   const [entries, setEntries] = useLocalStorageState("entries", {
     defaultValue: [],
   });
+
   const [selectedCountry, setSelectedCountry] = useState("");
-  const [isEditing, setIsEditing] = useState(false);
 
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
@@ -28,16 +28,30 @@ export default function FavoriteCountriesPage({
     listFavoriteCountries.find((info) => info.name === country.name.common)
   );
 
-  const countryToEdit = entries.filter((entry) => {
-    entry.name === favoriteCountries.name;
-  });
-
   function handleAddEntry(newEntry) {
     setEntries([{ ...newEntry }, ...entries]);
   }
 
-  function handleEditEntry() {
-    setIsEditing(true);
+  function handleEditEntry(country, updatedEntry) {
+    console.log(updatedEntry);
+    setEntries(
+      entries.map((entry) => {
+        const entryToEdit = entry.name === country.name.common;
+        if (entryToEdit) {
+          return {
+            name: entry.name,
+            date: updatedEntry.date,
+            passport: updatedEntry.passport,
+            visa: updatedEntry.visa,
+            vaccination: updatedEntry.vaccination,
+            allowedDays: updatedEntry.allowedDays,
+            notes: updatedEntry.notes,
+          };
+        } else {
+          return entry;
+        }
+      })
+    );
   }
 
   return (
@@ -86,13 +100,13 @@ export default function FavoriteCountriesPage({
                   </StyledButton>
                 )}
               </StyledListElement>
+
               <Entry
-                entries={entries}
                 name={country.name.common}
-                isEditing={isEditing}
-                countryToEdit={countryToEdit}
+                onEditEntry={handleEditEntry}
+                entries={entries}
+                country={country}
               />
-              <StyledButton onClick={handleEditEntry}>Edit</StyledButton>
             </Fragment>
           );
         })}
