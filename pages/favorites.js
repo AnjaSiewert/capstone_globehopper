@@ -71,16 +71,20 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 )}
-                <StyledButton
-                  isHidingForm
-                  onClick={() =>
-                    setSelectedCountry(
-                      !isCountrySelected && country.name.common
-                    )
-                  }
-                >
-                  {isCountrySelected ? "Hide form" : "Plan my trip"}
-                </StyledButton>
+                {!entries.find(
+                  (entry) => entry.name === country.name.common
+                ) && (
+                  <StyledButton
+                    isHidingForm
+                    onClick={() =>
+                      setSelectedCountry(
+                        !isCountrySelected && country.name.common
+                      )
+                    }
+                  >
+                    {isCountrySelected ? "Hide form" : "Plan my trip"}
+                  </StyledButton>
+                )}
               </StyledListElement>
               <Entry
                 entries={entries}
