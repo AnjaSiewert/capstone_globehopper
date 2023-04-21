@@ -61,58 +61,61 @@ export default function FavoriteCountriesPage({
     <>
       <Header headline="to explore" />
       <StyledList isOnCard>
-        {favoriteCountries.map((country) => {
-          const isCountrySelected = selectedCountry === country.name.common;
-          return (
-            <Fragment key={country.cca2}>
-              <StyledListElement isOnFavoritesPage>
-                <CountriesPreview
-                  name={country.name.common}
-                  capital={country.capital}
-                  continent={country.continents}
-                  flag={country.flag}
-                  countries={favoriteCountries}
-                  onToggleFavorite={onToggleFavorite}
-                  countriesInfo={countriesInfo}
-                />
-                <StyledSVG positionSVG>
-                  <FavoriteButton
+        {favoriteCountries
+          .slice()
+          .sort((a, b) => a.name.common.localeCompare(b.name.common))
+          .map((country) => {
+            const isCountrySelected = selectedCountry === country.name.common;
+            return (
+              <Fragment key={country.cca2}>
+                <StyledListElement isOnFavoritesPage>
+                  <CountriesPreview
+                    name={country.name.common}
+                    capital={country.capital}
+                    continent={country.continents}
+                    flag={country.flag}
+                    countries={favoriteCountries}
                     onToggleFavorite={onToggleFavorite}
                     countriesInfo={countriesInfo}
-                    name={country.name.common}
                   />
-                </StyledSVG>
-                {isCountrySelected && (
-                  <Form
-                    onAddEntry={handleAddEntry}
+                  <StyledSVG positionSVG>
+                    <FavoriteButton
+                      onToggleFavorite={onToggleFavorite}
+                      countriesInfo={countriesInfo}
+                      name={country.name.common}
+                    />
+                  </StyledSVG>
+                  {isCountrySelected && (
+                    <Form
+                      onAddEntry={handleAddEntry}
+                      name={country.name.common}
+                    />
+                  )}
+                  {!entries.find(
+                    (entry) => entry.name === country.name.common
+                  ) && (
+                    <StyledButton
+                      isHidingForm
+                      onClick={() =>
+                        setSelectedCountry(
+                          !isCountrySelected && country.name.common
+                        )
+                      }
+                    >
+                      {isCountrySelected ? "Hide form" : "Plan my trip"}
+                    </StyledButton>
+                  )}
+                  <Entry
                     name={country.name.common}
+                    onEditEntry={handleEditEntry}
+                    onDeleteEntry={handleDeleteEntry}
+                    entries={entries}
+                    country={country}
                   />
-                )}
-                {!entries.find(
-                  (entry) => entry.name === country.name.common
-                ) && (
-                  <StyledButton
-                    isHidingForm
-                    onClick={() =>
-                      setSelectedCountry(
-                        !isCountrySelected && country.name.common
-                      )
-                    }
-                  >
-                    {isCountrySelected ? "Hide form" : "Plan my trip"}
-                  </StyledButton>
-                )}
-                <Entry
-                  name={country.name.common}
-                  onEditEntry={handleEditEntry}
-                  onDeleteEntry={handleDeleteEntry}
-                  entries={entries}
-                  country={country}
-                />
-              </StyledListElement>
-            </Fragment>
-          );
-        })}
+                </StyledListElement>
+              </Fragment>
+            );
+          })}
       </StyledList>
     </>
   );
