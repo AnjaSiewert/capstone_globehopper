@@ -21,30 +21,33 @@ export default function VisitedCountriesPage({
     <>
       <Header headline="explored" />
       <StyledList isOnCard>
-        {visitedCountries.map((country) => {
-          return (
-            <Fragment key={country.cca2}>
-              <StyledListElement key={country.name}>
-                <CountriesPreview
-                  name={country.name.common}
-                  capital={country.capital}
-                  continent={country.continents}
-                  flag={country.flag}
-                  countries={visitedCountries}
-                  onToggleVisited={onToggleVisited}
-                  countriesInfo={countriesInfo}
-                />
-                <StyledSVG positionSVG>
-                  <VisitedButton
+        {visitedCountries
+          .slice()
+          .sort((a, b) => a.name.common.localeCompare(b.name.common))
+          .map((country) => {
+            return (
+              <Fragment key={country.cca2}>
+                <StyledListElement key={country.name}>
+                  <CountriesPreview
+                    name={country.name.common}
+                    capital={country.capital}
+                    continent={country.continents}
+                    flag={country.flag}
+                    countries={visitedCountries}
                     onToggleVisited={onToggleVisited}
                     countriesInfo={countriesInfo}
-                    name={country.name.common}
                   />
-                </StyledSVG>
-              </StyledListElement>
-            </Fragment>
-          );
-        })}
+                  <StyledSVG positionSVG>
+                    <VisitedButton
+                      onToggleVisited={onToggleVisited}
+                      countriesInfo={countriesInfo}
+                      name={country.name.common}
+                    />
+                  </StyledSVG>
+                </StyledListElement>
+              </Fragment>
+            );
+          })}
       </StyledList>
     </>
   );
