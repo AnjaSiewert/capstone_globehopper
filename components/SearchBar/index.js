@@ -1,13 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
-
-const StyledSeachbar = styled.input`
-  margin-top: 6rem;
-  margin-left: 1rem;
-  border: 2px solid black;
-  border-radius: 5px;
-  width: 10rem;
-`;
+import StyledSeachbar from "./StyledSearchBar";
 
 export default function Searchbar({ countries, setFilteredCountries }) {
   const [searchInput, setSearchInput] = useState("");

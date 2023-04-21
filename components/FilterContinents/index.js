@@ -1,6 +1,10 @@
+import StyledFilterContinents from "./StyledFilterContinents";
+
 export default function FilterContinents({ countries, setFilteredCountries }) {
   const handleSelect = (event) => {
-    if (event.target.value === "africa") {
+    if (event.target.value === "all") {
+      setFilteredCountries(countries);
+    } else if (event.target.value === "africa") {
       setFilteredCountries(
         countries.filter((country) => country.region === "Africa")
       );
@@ -42,8 +46,9 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
 
   return (
     <>
-      <select onChange={handleSelect}>
-        <option value="">Filter by Continent</option>
+      <StyledFilterContinents onChange={handleSelect}>
+        <option value="">Filter by Continent...</option>
+        <option value="all">All</option>
         <option value="africa">Africa</option>
         <option value="asia">Asia</option>
         <option value="central america">Central America</option>
@@ -51,7 +56,7 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
         <option value="north america">North America</option>
         <option value="oceania">Oceania</option>
         <option value="south america">South America</option>
-      </select>
+      </StyledFilterContinents>
     </>
   );
 }
