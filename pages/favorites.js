@@ -53,8 +53,8 @@ export default function FavoriteCountriesPage({
     );
   }
 
-  function handleDeleteEntry() {
-    console.log("delete");
+  function handleDeleteEntry(country) {
+    setEntries(entries.filter((entry) => entry.name !== country.name.common));
   }
 
   return (

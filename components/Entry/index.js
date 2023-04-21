@@ -77,7 +77,9 @@ export default function Entry({
           <StyledButton onClick={() => setIsEditing(!isEditing)}>
             {isEditing ? "Cancel" : "Edit"}
           </StyledButton>
-          <StyledButton onClick={onDeleteEntry}>Delete</StyledButton>
+          <StyledButton onClick={() => onDeleteEntry(country)}>
+            Delete
+          </StyledButton>
         </StyledList>
         {isEditing && (
           <>
