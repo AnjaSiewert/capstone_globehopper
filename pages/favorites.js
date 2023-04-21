@@ -53,6 +53,10 @@ export default function FavoriteCountriesPage({
     );
   }
 
+  function handleDeleteEntry() {
+    console.log("delete");
+  }
+
   return (
     <>
       <Header headline="to explore" />
@@ -101,6 +105,7 @@ export default function FavoriteCountriesPage({
                 <Entry
                   name={country.name.common}
                   onEditEntry={handleEditEntry}
+                  onDeleteEntry={handleDeleteEntry}
                   entries={entries}
                   country={country}
                 />

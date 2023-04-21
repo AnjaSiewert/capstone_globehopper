@@ -4,7 +4,13 @@ import StyledForm from "../Form/StyledForm";
 import { useState } from "react";
 import StyledFieldset from "../Form/StyledFieldset";
 
-export default function Entry({ entries, name, onEditEntry, country }) {
+export default function Entry({
+  entries,
+  name,
+  onEditEntry,
+  country,
+  onDeleteEntry,
+}) {
   const [isVisaValid, setIsVisaValid] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [remainingCharacters, setRemainingCharacters] = useState(400);
@@ -71,8 +77,8 @@ export default function Entry({ entries, name, onEditEntry, country }) {
           <StyledButton onClick={() => setIsEditing(!isEditing)}>
             {isEditing ? "Cancel" : "Edit"}
           </StyledButton>
+          <StyledButton onClick={onDeleteEntry}>Delete</StyledButton>
         </StyledList>
-
         {isEditing && (
           <>
             <StyledForm onSubmit={handleSubmit} aria-label="Add own entries">
