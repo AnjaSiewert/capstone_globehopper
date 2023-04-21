@@ -98,14 +98,13 @@ export default function FavoriteCountriesPage({
                     {isCountrySelected ? "Hide form" : "Plan my trip"}
                   </StyledButton>
                 )}
+                <Entry
+                  name={country.name.common}
+                  onEditEntry={handleEditEntry}
+                  entries={entries}
+                  country={country}
+                />
               </StyledListElement>
-
-              <Entry
-                name={country.name.common}
-                onEditEntry={handleEditEntry}
-                entries={entries}
-                country={country}
-              />
             </Fragment>
           );
         })}

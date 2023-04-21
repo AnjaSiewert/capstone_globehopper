@@ -17,8 +17,6 @@ const StyledList = styled.ul`
       gap: 0.5rem;
       margin: 0.5rem;
       align-items: center;
-      border: 1px solid grey;
-      border-radius: 1rem;
       padding: 1rem;
     `}
 `;

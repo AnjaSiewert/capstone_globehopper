@@ -32,11 +32,6 @@ export default function Entry({ entries, name, onEditEntry, country }) {
     selectedCountry && (
       <>
         <StyledList isOnEntryList>
-          {selectedCountry.name && (
-            <li>
-              <strong>{selectedCountry.name.toUpperCase()}</strong>
-            </li>
-          )}
           {selectedCountry.date && (
             <li>
               <strong>When:</strong>{" "}
