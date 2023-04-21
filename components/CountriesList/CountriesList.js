@@ -19,6 +19,7 @@ export default function CountriesList({
   return (
     <>
       <StyledList>
+        <i>Click on a countries name for details</i>
         {countries
           .map((country) => ({
             key: country.name,

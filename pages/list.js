@@ -22,6 +22,7 @@ export default function CountriesListPage({
   return (
     <>
       <Header headline="explore" />
+
       <StyledSearchbarContainer>
         <Searchbar
           countries={countries}
@@ -32,6 +33,7 @@ export default function CountriesListPage({
           setFilteredCountries={setFilteredCountries}
         />
       </StyledSearchbarContainer>
+
       <CountriesList
         countries={filteredCountries}
         onToggleVisited={onToggleVisited}
