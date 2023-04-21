@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
     "countriesInfo",
     { defaultValue: [] }
   );
+
   const router = useRouter();
   const { name } = router.query;
 

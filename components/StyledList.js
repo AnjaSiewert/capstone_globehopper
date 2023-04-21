@@ -15,8 +15,9 @@ const StyledList = styled.ul`
     props.isOnEntryList &&
     css`
       gap: 0.5rem;
-      margin: 1rem;
+      margin: 0.5rem;
       align-items: center;
+      padding: 1rem;
     `}
 `;
 

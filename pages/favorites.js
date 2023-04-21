@@ -7,12 +7,19 @@ import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 import StyledSVG from "../components/StyledSVG";
 import StyledButton from "../components/StyledButton";
+import useLocalStorageState from "use-local-storage-state";
+import Entry from "../components/Entry";
+import { Fragment } from "react";
 
 export default function FavoriteCountriesPage({
   countries,
   countriesInfo,
   onToggleFavorite,
 }) {
+  const [entries, setEntries] = useLocalStorageState("entries", {
+    defaultValue: [],
+  });
+
   const [selectedCountry, setSelectedCountry] = useState("");
 
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
@@ -21,6 +28,31 @@ export default function FavoriteCountriesPage({
     listFavoriteCountries.find((info) => info.name === country.name.common)
   );
 
+  function handleAddEntry(newEntry) {
+    setEntries([{ ...newEntry }, ...entries]);
+  }
+
+  function handleEditEntry(country, updatedEntry) {
+    setEntries(
+      entries.map((entry) => {
+        const entryToEdit = entry.name === country.name.common;
+        if (entryToEdit) {
+          return {
+            name: entry.name,
+            date: updatedEntry.date,
+            passport: updatedEntry.passport,
+            visa: updatedEntry.visa,
+            vaccination: updatedEntry.vaccination,
+            allowedDays: updatedEntry.allowedDays,
+            notes: updatedEntry.notes,
+          };
+        } else {
+          return entry;
+        }
+      })
+    );
+  }
+
   return (
     <>
       <Header headline="to explore" />
@@ -28,12 +60,12 @@ export default function FavoriteCountriesPage({
         {favoriteCountries.map((country) => {
           const isCountrySelected = selectedCountry === country.name.common;
           return (
-            <>
-              <StyledListElement isOnFavoritesPage key={country.name}>
+            <Fragment key={country.cca2}>
+              <StyledListElement isOnFavoritesPage>
                 <CountriesPreview
                   name={country.name.common}
                   capital={country.capital}
-                  continent={country.region}
+                  continent={country.continents}
                   flag={country.flag}
                   countries={favoriteCountries}
                   onToggleFavorite={onToggleFavorite}
@@ -46,19 +78,34 @@ export default function FavoriteCountriesPage({
                     name={country.name.common}
                   />
                 </StyledSVG>
-                {isCountrySelected && <Form name={country.name.common} />}
-                <StyledButton
-                  isHidingForm
-                  onClick={() =>
-                    setSelectedCountry(
-                      !isCountrySelected && country.name.common
-                    )
-                  }
-                >
-                  {isCountrySelected ? "Hide form" : "Plan  my trip"}
-                </StyledButton>
+                {isCountrySelected && (
+                  <Form
+                    onAddEntry={handleAddEntry}
+                    name={country.name.common}
+                  />
+                )}
+                {!entries.find(
+                  (entry) => entry.name === country.name.common
+                ) && (
+                  <StyledButton
+                    isHidingForm
+                    onClick={() =>
+                      setSelectedCountry(
+                        !isCountrySelected && country.name.common
+                      )
+                    }
+                  >
+                    {isCountrySelected ? "Hide form" : "Plan my trip"}
+                  </StyledButton>
+                )}
+                <Entry
+                  name={country.name.common}
+                  onEditEntry={handleEditEntry}
+                  entries={entries}
+                  country={country}
+                />
               </StyledListElement>
-            </>
+            </Fragment>
           );
         })}
       </StyledList>
