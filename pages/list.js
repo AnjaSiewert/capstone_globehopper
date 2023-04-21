@@ -2,6 +2,7 @@ import { useState } from "react";
 import CountriesList from "../components/CountriesList/CountriesList";
 import Header from "../components/Header/Header";
 import Searchbar from "../components/SearchBar/Searchbar";
+import FilterContinents from "../components/FilterContinents/FilterContinents";
 
 export default function CountriesListPage({
   countries,
@@ -14,6 +15,10 @@ export default function CountriesListPage({
     <>
       <Header headline="explore" />
       <Searchbar
+        countries={countries}
+        setFilteredCountries={setFilteredCountries}
+      />
+      <FilterContinents
         countries={countries}
         setFilteredCountries={setFilteredCountries}
       />
