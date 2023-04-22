@@ -35,4 +35,8 @@ export default createGlobalStyle`
     list-style: none;
   }
 
+  i {
+    text-align: center;
+  }
+
 `;
