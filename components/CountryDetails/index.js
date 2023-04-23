@@ -24,8 +24,6 @@ export default function CountryDetails({ selectedCountry }) {
 
   const timezoneWithSeparators = selectedCountry.timezones?.join(", ");
 
-  // find a solution for countries with multiple timezones
-
   function getLocalTime(selectedCountry) {
     const timeZoneMap = {
       "UTC+01:00": "Europe/Paris",
@@ -68,15 +66,16 @@ export default function CountryDetails({ selectedCountry }) {
       UTC: "Europe/London",
     };
 
-    const selectedTimeZone = selectedCountry.timezones.find((timezone) =>
+    const selectedTimeZone = selectedCountry.timezones.filter((timezone) =>
       timeZoneMap.hasOwnProperty(timezone)
     );
 
-    if (selectedTimeZone) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: timeZoneMap[selectedTimeZone],
-      });
-    }
+    const localTimes = selectedTimeZone.map((timezone) =>
+      new Date().toLocaleString("en-US", {
+        timeZone: timeZoneMap[timezone],
+      })
+    );
+    return localTimes;
   }
 
   const currentLocalTime = getLocalTime(selectedCountry);
