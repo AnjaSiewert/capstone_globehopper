@@ -1,6 +1,7 @@
 import StyledFlag from "../StyledFlag";
 import StyledDiv from "../StyledDiv";
 import styled from "styled-components";
+import StyledList from "../StyledList";
 
 const StyledLink = styled.a`
   font-size: 2rem;
@@ -17,6 +18,7 @@ export default function CountryDetails({ selectedCountry }) {
     return <h2>is Loading</h2>;
   }
 
+  console.log(selectedCountry);
   const languagesWithSeparators =
     selectedCountry.languages &&
     Object.values(selectedCountry.languages).join(", ");
@@ -94,7 +96,12 @@ export default function CountryDetails({ selectedCountry }) {
         <strong>Population:</strong> {addSeparators(selectedCountry.population)}
       </p>
       <p>
-        <strong>Language: </strong>
+        <strong>
+          {Object.keys(selectedCountry?.languages || selectedCountry.timezones)
+            .length > 1
+            ? "Languages: "
+            : "Language: "}
+        </strong>
         {languagesWithSeparators}
       </p>
 
@@ -109,17 +116,20 @@ export default function CountryDetails({ selectedCountry }) {
       }
       <p>
         <strong>
-          Timezone:
+          {selectedCountry.timezones.length > 1 ? "Timezones:" : "Timezone:"}
           <br />
         </strong>{" "}
         {timezoneWithSeparators}
       </p>
-      <p>
+      <span>
         <strong>
-          Current local time: <br />
+          {selectedCountry.timezones.length > 1
+            ? "Current local times:"
+            : "Current local time:"}
+          <br />
         </strong>{" "}
-        <ul>{getLocalTime(selectedCountry)}</ul>
-      </p>
+        <StyledList>{getLocalTime(selectedCountry)}</StyledList>
+      </span>
       <p>
         <strong>UN Member:</strong> {selectedCountry.unMember ? "Yes" : "No"}
       </p>
