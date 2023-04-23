@@ -17,7 +17,6 @@ export default function CountryDetails({ selectedCountry }) {
     return <h2>is Loading</h2>;
   }
 
-  console.log(selectedCountry);
   const languagesWithSeparators =
     selectedCountry.languages &&
     Object.values(selectedCountry.languages).join(", ");
@@ -75,10 +74,8 @@ export default function CountryDetails({ selectedCountry }) {
         timeZone: timeZoneMap[timezone],
       })
     );
-    return localTimes;
+    return localTimes.map((localTime) => <li key={localTime}>{localTime}</li>);
   }
-
-  const currentLocalTime = getLocalTime(selectedCountry);
 
   return (
     <StyledDiv isOnDetailsPage>
@@ -121,7 +118,7 @@ export default function CountryDetails({ selectedCountry }) {
         <strong>
           Current local time: <br />
         </strong>{" "}
-        {currentLocalTime}
+        <ul>{getLocalTime(selectedCountry)}</ul>
       </p>
       <p>
         <strong>UN Member:</strong> {selectedCountry.unMember ? "Yes" : "No"}
