@@ -18,7 +18,6 @@ export default function CountryDetails({ selectedCountry }) {
     return <h2>is Loading</h2>;
   }
 
-  console.log(selectedCountry);
   const languagesWithSeparators =
     selectedCountry.languages &&
     Object.values(selectedCountry.languages).join(", ");
