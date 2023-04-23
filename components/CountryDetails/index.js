@@ -24,108 +24,61 @@ export default function CountryDetails({ selectedCountry }) {
 
   const timezoneWithSeparators = selectedCountry.timezones?.join(", ");
 
-  // shorten function
   // find a solution for countries with multiple timezones
   // UTC :30 are missing
 
+  /* "UTCs missing:"
+
+"UTC+03:30"
+"UTC+04:30"
+"UTC+05:30"
+"UTC+05:45"
+"UTC+06:30"
+"UTC+09:30"
+"UTC+10:30"
+"UTC+11:30"
+"UTC+12:45"
+"UTC+13:00"
+"UTC+14:00"
+"UTC-03:30"
+"UTC-09:30" */
+
   function getLocalTime(selectedCountry) {
-    if (selectedCountry.timezones.includes("UTC+01:00")) {
+    const timeZoneMap = {
+      "UTC+01:00": "Europe/Paris",
+      "UTC+02:00": "Europe/Helsinki",
+      "UTC+03:00": "Europe/Moscow",
+      "UTC+04:00": "Asia/Dubai",
+      "UTC+05:00": "Asia/Karachi",
+      "UTC+06:00": "Asia/Dhaka",
+      "UTC+07:00": "Asia/Bangkok",
+      "UTC+08:00": "Asia/Shanghai",
+      "UTC+09:00": "Asia/Tokyo",
+      "UTC+10:00": "Australia/Sydney",
+      "UTC+11:00": "Pacific/Guadalcanal",
+      "UTC+12:00": "Pacific/Auckland",
+      "UTC-01:00": "Atlantic/Azores",
+      "UTC-02:00": "America/Noronha",
+      "UTC-03:00": "America/Sao_Paulo",
+      "UTC-04:00": "America/Caracas",
+      "UTC-05:00": "America/Bogota",
+      "UTC-06:00": "America/Mexico_City",
+      "UTC-07:00": "America/Phoenix",
+      "UTC-08:00": "America/Los_Angeles",
+      "UTC-09:00": "America/Anchorage",
+      "UTC-10:00": "Pacific/Honolulu",
+      "UTC-11:00": "Pacific/Midway",
+      "UTC-12:00": "Pacific/Kwajalein",
+      UTC: "Europe/London",
+    };
+
+    const selectedTimeZone = selectedCountry.timezones.find((timezone) =>
+      timeZoneMap.hasOwnProperty(timezone)
+    );
+
+    if (selectedTimeZone) {
       return new Date().toLocaleString("en-US", {
-        timeZone: "Europe/Paris",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+02:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Europe/Helsinki",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+03:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Europe/Moscow",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+04:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Dubai",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+05:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Karachi",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+06:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Dhaka",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+07:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Bangkok",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+08:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Shanghai",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+09:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Asia/Tokyo",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+10:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Australia/Sydney",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+11:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Pacific/Guadalcanal",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+12:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Pacific/Auckland",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-01:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Atlantic/Azores",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-02:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Noronha",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-03:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Sao_Paulo",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-04:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Caracas",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-05:00")) {
-      return new Date().toLocaleString("en-US", { timeZone: "America/Bogota" });
-    } else if (selectedCountry.timezones.includes("UTC-06:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Mexico_City",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-07:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Phoenix",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-08:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Los_Angeles",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-09:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "America/Anchorage",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-10:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Pacific/Honolulu",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-11:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Pacific/Midway",
-      });
-    } else if (selectedCountry.timezones.includes("UTC-12:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Pacific/Kwajalein",
-      });
-    } else if (selectedCountry.timezones.includes("UTC+00:00")) {
-      return new Date().toLocaleString("en-US", {
-        timeZone: "Europe/London",
+        timeZone: timeZoneMap[selectedTimeZone],
       });
     }
   }
