@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Home from "../../public/assets/home.svg";
+import Home from "../../public/assets/home-outline.svg";
 import Earth from "../../public/assets/earth.svg";
 import Map from "../../public/assets/map.svg";
 import StyledFooter from "../StyledFooter";
