@@ -17,6 +17,7 @@ const StyledListElement = styled.li`
       display: flex;
       flex-direction: column;
       border-radius: 1rem;
+      background-color: #f0ebed;
     `}
 
   list-style: none;
