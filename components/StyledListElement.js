@@ -23,6 +23,7 @@ const StyledListElement = styled.li`
   list-style: none;
   margin: 0.3rem;
   border: 1px solid grey;
+  color: var(--antracite);
 `;
 
 export default StyledListElement;

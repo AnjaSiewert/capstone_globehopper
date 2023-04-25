@@ -14,7 +14,7 @@ const StyledLink = styled(Link)`
   width: 13rem;
   padding-left: 0.3rem;
   text-decoration: none;
-  color: black;
+  color: var(----antracite);
 `;
 
 export default function CountriesList({

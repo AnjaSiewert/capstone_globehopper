@@ -7,8 +7,8 @@ import Arrow from "../../public/assets/arrow-left.svg";
 const StyledLink = styled(Link)`
   font-size: 2rem;
   position: absolute;
-  right: 21rem;
   top: 5.5rem;
+  align-self: flex-start;
 `;
 
 export default function CountryDetails({ selectedCountry }) {
