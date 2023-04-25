@@ -39,4 +39,8 @@ export default createGlobalStyle`
     text-align: center;
   }
 
+  Image {
+    object-fit: cover;
+  }
+
 `;
