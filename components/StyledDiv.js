@@ -6,13 +6,13 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 2rem 2rem 2rem 2rem;
+  margin: 1.5rem 4.5rem 1.5rem 4.5rem;
   ${(props) =>
     props.withBorder &&
     css`
       border: 1px solid grey;
       border-radius: 1rem;
-      padding: 1rem;
+      padding: 0rem 0.5rem 1rem 0.5rem;
       background-color: var(--lightgrey);
     `}
   ${(props) =>
