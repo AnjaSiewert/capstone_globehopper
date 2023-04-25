@@ -17,11 +17,14 @@ export default function Searchbar({ countries, setFilteredCountries }) {
   };
 
   return (
-    <StyledSeachbar
-      type="text"
-      placeholder="Search for a country..."
-      onChange={handleChange}
-      value={searchInput}
-    />
+    <label>
+      {" "}
+      <StyledSeachbar
+        type="text"
+        placeholder="Search for a country..."
+        onChange={handleChange}
+        value={searchInput}
+      />
+    </label>
   );
 }

@@ -49,7 +49,7 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
   };
 
   return (
-    <>
+    <label>
       <StyledFilterContinents onChange={handleSelect}>
         <option value="all">Filter by Continent...</option>
         <option value="africa">Africa</option>
@@ -61,6 +61,6 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
         <option value="oceania">Oceania</option>
         <option value="south america">South America</option>
       </StyledFilterContinents>
-    </>
+    </label>
   );
 }
