@@ -1,7 +1,7 @@
-import Star from "../../public/assets/star.svg";
+import Star from "../../public/assets/star-with-stroke.svg";
 import StyledSVG from "../StyledSVG";
 
-const StarLiked = () => <Star height={32} width={32} fill="red" />;
+const StarLiked = () => <Star height={32} width={32} fill="#76AEDF" />;
 
 export default function FavoriteButton({
   onToggleFavorite,
