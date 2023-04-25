@@ -6,18 +6,14 @@ const StyledButton = styled.button`
   width: 8rem;
   background-color: #a8c3c5;
   color: var(--anthracite);
+  margin-bottom: 0.8rem;
 
   ${(props) =>
     props.isHidingForm &&
     css`
       align-self: center;
-      margin-bottom: 0.8rem;
     `}
-  ${(props) =>
-    props.isSubmit &&
-    css`
-      margin-bottom: 0.8rem;
-    `}
+  ${(props) => props.isSubmit && css``}
 
     &:hover {
     transform: scale(1.02);
