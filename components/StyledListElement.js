@@ -2,25 +2,26 @@ import styled, { css } from "styled-components";
 
 const StyledListElement = styled.li`
   ${(props) =>
-    props.isOnHomepage &&
+    props.isOnListpage &&
     css`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-left: 0.5rem;
+      padding: 0.3rem;
       background-color: var(--lightgrey);
+      border-radius: 01rem;
     `}
   ${(props) =>
     props.isOnFavoritesPage &&
     css`
       display: flex;
       flex-direction: column;
+      border-radius: 1rem;
     `}
 
   list-style: none;
-  margin: 0.5rem;
+  margin: 0.3rem;
   border: 1px solid grey;
-  border-radius: 1rem;
 `;
 
 export default StyledListElement;

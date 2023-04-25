@@ -27,7 +27,7 @@ export default function CountriesList({
           }))
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((country) => (
-            <StyledListElement isOnHomepage key={country.name}>
+            <StyledListElement isOnListpage key={country.name}>
               <Link href={`/countries/${country.name.toLowerCase()}`}>
                 {country.name}{" "}
               </Link>

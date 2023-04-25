@@ -27,7 +27,7 @@ export default function VisitedCountriesPage({
           .map((country) => {
             return (
               <Fragment key={country.cca2}>
-                <StyledListElement key={country.name}>
+                <StyledListElement isOnFavoritesPage key={country.name}>
                   <CountriesPreview
                     name={country.name.common}
                     capital={country.capital}
