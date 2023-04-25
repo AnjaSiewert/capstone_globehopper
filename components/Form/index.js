@@ -85,7 +85,7 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="vaccination-required"
                 name="vaccination"
-                value="YES"
+                value="Yes"
                 required
               />
               YES
@@ -164,7 +164,7 @@ export default function Form({ name, onAddEntry }) {
             </label>
             <i>Characters left: {400 - text.length}/400</i>
           </StyledFieldset>
-          <StyledButton type="submit" aria-label="submit">
+          <StyledButton isSubmit type="submit" aria-label="submit">
             Submit
           </StyledButton>
         </StyledForm>

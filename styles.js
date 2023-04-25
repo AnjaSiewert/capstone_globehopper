@@ -10,14 +10,14 @@ export default createGlobalStyle`
   :root {
     --tourquoise: #9ac6bc;
     --lightgrey: #D4CFD1;
-    --antrazit: #3d3d3d;
+    --antracite: #3d3d3d;
     --beige: #F2F2F2;
   }
 
   body {
     margin: 0;
     font-family: system-ui;  
-    color: var(--antrazit);
+    color: var(--antracite);
     background-color: var(--beige);
   }
 

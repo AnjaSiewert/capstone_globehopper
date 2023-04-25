@@ -3,6 +3,14 @@ import StyledButton from "../StyledButton";
 import StyledForm from "../Form/StyledForm";
 import { useState } from "react";
 import StyledFieldset from "../Form/StyledFieldset";
+import styled from "styled-components";
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+`;
 
 export default function Entry({
   entries,
@@ -74,12 +82,14 @@ export default function Entry({
             </li>
           )}
 
-          <StyledButton onClick={() => setIsEditing(!isEditing)}>
-            {isEditing ? "Cancel" : "Edit"}
-          </StyledButton>
-          <StyledButton onClick={() => onDeleteEntry(country)}>
-            Delete
-          </StyledButton>
+          <StyledButtonWrapper>
+            <StyledButton onClick={() => setIsEditing(!isEditing)}>
+              {isEditing ? "Cancel" : "Edit"}
+            </StyledButton>
+            <StyledButton onClick={() => onDeleteEntry(country)}>
+              Delete
+            </StyledButton>
+          </StyledButtonWrapper>
         </StyledList>
         {isEditing && (
           <>
