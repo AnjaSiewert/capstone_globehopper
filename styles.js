@@ -17,15 +17,9 @@ export default createGlobalStyle`
     font-family: system-ui;  
   }
 
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
   fieldset {
     border: none;
   }
-
 
   legend {
     text-align: center;

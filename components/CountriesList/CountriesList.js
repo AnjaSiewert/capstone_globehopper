@@ -10,6 +10,13 @@ const StyledVisitedToggle = styled.div`
   right: 5rem;
 `;
 
+const StyledLink = styled(Link)`
+  width: 13rem;
+  padding-left: 0.3rem;
+  text-decoration: none;
+  color: black;
+`;
+
 export default function CountriesList({
   countries,
   onToggleVisited,
@@ -28,9 +35,9 @@ export default function CountriesList({
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((country) => (
             <StyledListElement isOnListpage key={country.name}>
-              <Link href={`/countries/${country.name.toLowerCase()}`}>
+              <StyledLink href={`/countries/${country.name.toLowerCase()}`}>
                 {country.name}{" "}
-              </Link>
+              </StyledLink>
               <StyledVisitedToggle>
                 <VisitedButton
                   onToggleVisited={onToggleVisited}
