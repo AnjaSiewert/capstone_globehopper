@@ -1,7 +1,6 @@
-import StyledFlag from "../StyledFlag";
 import StyledDiv from "../StyledDiv";
+import StyledFlag from "../StyledFlag";
 import styled from "styled-components";
-import StyledList from "../StyledList";
 import Link from "next/link";
 import Arrow from "../../public/assets/arrow-left.svg";
 
@@ -135,8 +134,7 @@ export default function CountryDetails({ selectedCountry }) {
       <span>
         <strong>UN Member:</strong> {selectedCountry.unMember ? "Yes" : "No"}
       </span>
-
-      <StyledFlag>{selectedCountry.flag}</StyledFlag>
+      <StyledFlag isOnDetailsPage>{selectedCountry.flag}</StyledFlag>
     </StyledDiv>
   );
 }
