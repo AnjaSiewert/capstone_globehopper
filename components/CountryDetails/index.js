@@ -129,7 +129,7 @@ export default function CountryDetails({ selectedCountry }) {
             ? "Current local times:"
             : "Current local time:"}
         </strong>{" "}
-        <li>{getLocalTime(selectedCountry)}</li>
+        <span>{getLocalTime(selectedCountry)}</span>
       </span>
       <span>
         <strong>UN Member:</strong> {selectedCountry.unMember ? "Yes" : "No"}

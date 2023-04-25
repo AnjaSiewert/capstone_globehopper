@@ -1,7 +1,7 @@
-import VisitedButton from "../VisitedButton/VisitedButton";
+import VisitedButton from "../VisitedButton";
 import StyledListElement from "../StyledListElement";
 import StyledList from "../StyledList";
-import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import FavoriteButton from "../FavoriteButton";
 import styled from "styled-components";
 import Link from "next/link";
 
