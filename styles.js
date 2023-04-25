@@ -9,12 +9,16 @@ export default createGlobalStyle`
 
   :root {
     --tourquoise: #9ac6bc;
-    --lightgrey: #ece7e9;
+    --lightgrey: #D4CFD1;
+    --antrazit: #3d3d3d;
+    --beige: #F2F2F2;
   }
 
   body {
     margin: 0;
     font-family: system-ui;  
+    color: var(--antrazit);
+    background-color: var(--beige);
   }
 
   fieldset {
@@ -36,5 +40,6 @@ export default createGlobalStyle`
   Image {
     object-fit: cover;
   }
+
 
 `;

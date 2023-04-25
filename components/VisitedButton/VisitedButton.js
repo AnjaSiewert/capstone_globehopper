@@ -1,7 +1,7 @@
 import Check from "../../public/assets/check.svg";
 import StyledSVG from "../StyledSVG";
 
-const CheckLiked = () => <Check height={32} width={32} fill="#9ac6bc" />;
+const CheckLiked = () => <Check height={32} width={32} fill="#599FA8" />;
 
 export default function VisitedButton({
   onToggleVisited,

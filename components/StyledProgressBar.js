@@ -15,6 +15,7 @@ const StyledProgressBar = styled.div`
     width: 100%;
     background-color: var(--tourquoise);
     border-radius: inherit;
+    padding-left: 15px;
     width: ${(props) => `${props.percent}%`};
   }
 `;
