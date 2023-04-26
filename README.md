@@ -11,15 +11,16 @@ Globehopper is an app, where you can track which countries you have already visi
 
 ## Description
 
-Globehopper allows the user to mark countries as visited and put them on the wish list if you want to travel to these countries
+With this travel app, you can easily keep track of the countries you have visited and plan your future travels all in one place
 
 ## Features
 
-- The amount of visited countries is visually displayed on the homepage in progress bars
-- On the second page there is a list of all countries where you can filter by continent or search for a countries name
-- In addition, there you can mark the countries as visited and and want to go
-- Clicking on a countries name leads the user to the respective details page, where details such as continent, Languages, currencies & current local times are displayed
-- on the explored page the countries marked as visited are displayed and sorted alphabetically
-- On the Wish list the marked countries are as well displayed and sorted alphabetically
-- Furthermore when clicking on the button "Plan your trip" there is a form where you can enter details to plan your trip and submit the entries
-- These details can be edited and deleted once they are submitted
+If you are a passionate traveler, this travel app offers some features to make your travel experience easier and more enjoyable. Here are the key features that our app provides
+
+- Visually displayed progress bars on the homepage, showcasing the number of countries you have visited so far
+- A comprehensive list of all countries where you can filter by continent or search for a country by name
+- The ability to mark countries as "visited" or "want to go" directly from the country list
+- Clicking on a country's name will take you to a detailed page that displays useful information such as the country's continent, languages, currencies, and current local time
+- The "Explored" page displays all the countries that you have marked as "visited" and sorts them alphabetically
+- The "Wish list" page displays all the countries that you have marked as "want to go" and sorts them alphabetically
+- The "Plan your trip" button takes you to a form where you can enter the details of your upcoming trip and submit them. You can also edit or delete these details at any time
