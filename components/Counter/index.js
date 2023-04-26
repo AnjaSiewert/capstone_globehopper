@@ -8,7 +8,7 @@ export default function Counter({ countries, countriesInfo }) {
     (countVisitedCountries.length / countries.length) * 100;
 
   const StyledHeadline = styled.h2`
-    font-size: 2rem;
+    font-size: 1.8rem;
   `;
 
   return (

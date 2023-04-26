@@ -21,10 +21,10 @@ const StyledDiv = styled.div`
     css`
       border: 1px solid grey;
       border-radius: 1rem;
-      padding: 0rem 0.5rem 1.5rem 0.5rem;
+      padding-bottom: 1rem;
       background-color: var(--lightgrey);
-      margin: 1.5rem 3rem 1.5rem 3rem;
-      font-size: 1.5rem;
+      margin: 1.5rem 3.5rem 1.5rem 3.5rem;
+      font-size: 1.3rem;
     `}
   ${(props) =>
     props.isOnDetailsPage &&
