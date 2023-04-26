@@ -13,9 +13,11 @@ Globehopper is an app, where you can track which countries you have already visi
 
 With this travel app, you can easily keep track of the countries you have visited and plan your future travels all in one place
 
+![Pic1](public/assets/capstone1.png)
+
 ## Getting started
 
-To get started simply visit [Glopebhopper App](https://capstone-globehopper.vercel.app/)and try it out! No further installation is required. Just open the link on your preferred web browser and enjoy
+To get started simply visit [Glopehopper App](https://capstone-globehopper.vercel.app/) and try it out! No further installation is required. Just open the link on your preferred web browser and enjoy
 
 ## Features
 
