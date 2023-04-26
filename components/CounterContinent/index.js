@@ -68,7 +68,7 @@ export default function CounterContinent({ countries, countriesInfo }) {
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((continent) => (
           <StyledDiv withBorder key={continent.name}>
-            <h3>{continent.name}</h3>
+            <h2>{continent.name}</h2>
             <article>
               <StyledCounterContinent>
                 {continent.visitedCount} / {continent.totalCount}{" "}

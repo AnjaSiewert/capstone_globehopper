@@ -3,6 +3,14 @@ import StyledButton from "../StyledButton";
 import StyledForm from "../Form/StyledForm";
 import { useState } from "react";
 import StyledFieldset from "../Form/StyledFieldset";
+import styled from "styled-components";
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+`;
 
 export default function Entry({
   entries,
@@ -74,12 +82,14 @@ export default function Entry({
             </li>
           )}
 
-          <StyledButton onClick={() => setIsEditing(!isEditing)}>
-            {isEditing ? "Cancel" : "Edit"}
-          </StyledButton>
-          <StyledButton onClick={() => onDeleteEntry(country)}>
-            Delete
-          </StyledButton>
+          <StyledButtonWrapper>
+            <StyledButton onClick={() => setIsEditing(!isEditing)}>
+              {isEditing ? "Cancel" : "Edit"}
+            </StyledButton>
+            <StyledButton onClick={() => onDeleteEntry(country)}>
+              Delete
+            </StyledButton>
+          </StyledButtonWrapper>
         </StyledList>
         {isEditing && (
           <>
@@ -101,7 +111,7 @@ export default function Entry({
                 />
               </StyledFieldset>
               <h4>Required checks:</h4>
-              <StyledFieldset>
+              <StyledFieldset isCheckbox>
                 <legend>
                   <span>Passport:</span>
                 </legend>
@@ -110,10 +120,10 @@ export default function Entry({
                     type="radio"
                     id="passport-required"
                     name="passport"
-                    value="✅"
+                    value="Yes"
                     required
                     defaultChecked={
-                      selectedCountry.passport === "✅" ? true : false
+                      selectedCountry.passport === "Yes" ? true : false
                     }
                   />
                   YES
@@ -123,16 +133,16 @@ export default function Entry({
                     type="radio"
                     id="passport-notrequired"
                     name="passport"
-                    value="❌"
+                    value="NO"
                     required
                     defaultChecked={
-                      selectedCountry.passport === "❌" ? true : false
+                      selectedCountry.passport === "NO" ? true : false
                     }
                   />
                   NO
                 </label>
               </StyledFieldset>
-              <StyledFieldset>
+              <StyledFieldset isCheckbox>
                 <legend>
                   <span> Vaccination:</span>
                 </legend>
@@ -141,10 +151,10 @@ export default function Entry({
                     type="radio"
                     id="vaccination-required"
                     name="vaccination"
-                    value="✅"
+                    value="Yes"
                     required
                     defaultChecked={
-                      selectedCountry.vaccination === "✅" ? true : false
+                      selectedCountry.vaccination === "Yes" ? true : false
                     }
                   />
                   YES
@@ -154,16 +164,16 @@ export default function Entry({
                     type="radio"
                     id="vaccination-notrequired"
                     name="vaccination"
-                    value="❌"
+                    value="No"
                     required
                     defaultChecked={
-                      selectedCountry.vaccination === "❌" ? true : false
+                      selectedCountry.vaccination === "No" ? true : false
                     }
                   />
                   NO
                 </label>
               </StyledFieldset>
-              <StyledFieldset>
+              <StyledFieldset isCheckbox>
                 <legend>
                   <span> Visa:</span>
                 </legend>
@@ -172,10 +182,10 @@ export default function Entry({
                     type="radio"
                     id="visa-required"
                     name="visa"
-                    value="✅"
+                    value="Yes"
                     required
                     defaultChecked={
-                      selectedCountry.visa === "✅" ? true : false
+                      selectedCountry.visa === "Yes" ? true : false
                     }
                   />
                   YES
@@ -185,10 +195,10 @@ export default function Entry({
                     type="radio"
                     id="visa-notrequired"
                     name="visa"
-                    value="❌"
+                    value="No"
                     required
                     defaultChecked={
-                      selectedCountry.visa === "❌" ? true : false
+                      selectedCountry.visa === "No" ? true : false
                     }
                   />
                   NO

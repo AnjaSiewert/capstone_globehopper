@@ -1,4 +1,5 @@
 import StyledDiv from "../StyledDiv";
+import StyledHeadline from "../StyledHeadline";
 import StyledProgressBar from "../StyledProgressBar";
 
 export default function Counter({ countries, countriesInfo }) {
@@ -8,11 +9,9 @@ export default function Counter({ countries, countriesInfo }) {
 
   return (
     <>
-      <StyledDiv>
-        <article>
-          I have been in <strong>{countVisitedCountries.length}</strong>{" "}
-          countries of total {countries.length} countries
-        </article>
+      <StyledDiv withBorderTotal>
+        <StyledHeadline>The World</StyledHeadline>
+        {countVisitedCountries.length} /{countries.length}
         <StyledProgressBar percent={percentVisited} />
       </StyledDiv>
     </>

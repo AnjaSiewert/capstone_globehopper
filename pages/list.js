@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CountriesList from "../components/CountriesList/CountriesList";
-import Header from "../components/Header/Header";
+import CountriesList from "../components/CountriesList";
+import Header from "../components/Header";
 import Searchbar from "../components/SearchBar";
 import FilterContinents from "../components/FilterContinents";
 import styled from "styled-components";
@@ -22,7 +22,6 @@ export default function CountriesListPage({
   return (
     <>
       <Header headline="explore" />
-
       <StyledSearchbarContainer>
         <Searchbar
           countries={countries}
@@ -33,7 +32,6 @@ export default function CountriesListPage({
           setFilteredCountries={setFilteredCountries}
         />
       </StyledSearchbarContainer>
-
       <CountriesList
         countries={filteredCountries}
         onToggleVisited={onToggleVisited}

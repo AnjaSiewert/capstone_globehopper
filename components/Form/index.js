@@ -51,7 +51,7 @@ export default function Form({ name, onAddEntry }) {
             />
           </StyledFieldset>
           <h4>Required checks:</h4>
-          <StyledFieldset>
+          <StyledFieldset isCheckbox>
             <legend>
               <span>Passport:</span>
             </legend>
@@ -60,7 +60,7 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="passport-required"
                 name="passport"
-                value="✅"
+                value="Yes"
                 required
               />
               YES
@@ -70,13 +70,13 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="passport-notrequired"
                 name="passport"
-                value="❌"
+                value="No"
                 required
               />
               NO
             </label>
           </StyledFieldset>
-          <StyledFieldset>
+          <StyledFieldset isCheckbox>
             <legend>
               <span> Vaccination:</span>
             </legend>
@@ -85,7 +85,7 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="vaccination-required"
                 name="vaccination"
-                value="✅"
+                value="Yes"
                 required
               />
               YES
@@ -95,13 +95,13 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="vaccination-notrequired"
                 name="vaccination"
-                value="❌"
+                value="No"
                 required
               />
               NO
             </label>
           </StyledFieldset>
-          <StyledFieldset>
+          <StyledFieldset isCheckbox>
             <legend>
               <span> Visa:</span>
             </legend>
@@ -110,7 +110,7 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="visa-required"
                 name="visa"
-                value="✅"
+                value="Yes"
                 required
               />
               YES
@@ -120,7 +120,7 @@ export default function Form({ name, onAddEntry }) {
                 type="radio"
                 id="visa-notrequired"
                 name="visa"
-                value="❌"
+                value="No"
                 required
               />
               NO
@@ -164,7 +164,7 @@ export default function Form({ name, onAddEntry }) {
             </label>
             <i>Characters left: {400 - text.length}/400</i>
           </StyledFieldset>
-          <StyledButton type="submit" aria-label="submit">
+          <StyledButton isSubmit type="submit" aria-label="submit">
             Submit
           </StyledButton>
         </StyledForm>

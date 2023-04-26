@@ -8,6 +8,10 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
       setFilteredCountries(
         countries.filter((country) => country.region === "Africa")
       );
+    } else if (event.target.value === "antarctica") {
+      setFilteredCountries(
+        countries.filter((country) => country.region === "Antarctic")
+      );
     } else if (event.target.value === "asia") {
       setFilteredCountries(
         countries.filter((country) => country.region === "Asia")
@@ -45,11 +49,11 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
   };
 
   return (
-    <>
+    <label>
       <StyledFilterContinents onChange={handleSelect}>
-        <option value="">Filter by Continent...</option>
-        <option value="all">All</option>
+        <option value="all">Filter by Continent...</option>
         <option value="africa">Africa</option>
+        <option value="antarctica">Antarctica</option>
         <option value="asia">Asia</option>
         <option value="central america">Central America</option>
         <option value="europe">Europe</option>
@@ -57,6 +61,6 @@ export default function FilterContinents({ countries, setFilteredCountries }) {
         <option value="oceania">Oceania</option>
         <option value="south america">South America</option>
       </StyledFilterContinents>
-    </>
+    </label>
   );
 }

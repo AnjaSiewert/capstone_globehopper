@@ -9,23 +9,21 @@ export default createGlobalStyle`
 
   :root {
     --tourquoise: #9ac6bc;
-    --lightgrey: #ece7e9;
+    --lightgrey: #D4CFD1;
+    --antracite: #3d3d3d;
+    --beige: #F2F2F2;
   }
 
   body {
     margin: 0;
     font-family: system-ui;  
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
+    color: var(--antracite);
+    background-color: var(--beige);
   }
 
   fieldset {
     border: none;
   }
-
 
   legend {
     text-align: center;
@@ -38,5 +36,10 @@ export default createGlobalStyle`
   i {
     text-align: center;
   }
+
+  Image {
+    object-fit: cover;
+  }
+
 
 `;

@@ -6,6 +6,7 @@ const StyledSVG = styled.div`
     css`
       display: flex;
       justify-content: center;
+      margin-bottom: 0.3rem;
     `}
   background: transparent;
   border: none;

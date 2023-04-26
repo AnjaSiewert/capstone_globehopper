@@ -1,8 +1,8 @@
 import { useState } from "react";
-import CountriesPreview from "../components/CountriesPreview/CountriesPreview";
-import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
+import CountriesPreview from "../components/CountriesPreview";
+import FavoriteButton from "../components/FavoriteButton";
 import Form from "../components/Form";
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 import StyledList from "../components/StyledList";
 import StyledListElement from "../components/StyledListElement";
 import StyledSVG from "../components/StyledSVG";

@@ -1,13 +1,20 @@
-import VisitedButton from "../VisitedButton/VisitedButton";
+import VisitedButton from "../VisitedButton";
 import StyledListElement from "../StyledListElement";
 import StyledList from "../StyledList";
-import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import FavoriteButton from "../FavoriteButton";
 import styled from "styled-components";
 import Link from "next/link";
 
 const StyledVisitedToggle = styled.div`
   position: absolute;
   right: 5rem;
+`;
+
+const StyledLink = styled(Link)`
+  width: 13rem;
+  padding-left: 0.3rem;
+  text-decoration: none;
+  color: var(----antracite);
 `;
 
 export default function CountriesList({
@@ -27,10 +34,10 @@ export default function CountriesList({
           }))
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((country) => (
-            <StyledListElement isOnHomepage key={country.name}>
-              <Link href={`/countries/${country.name.toLowerCase()}`}>
+            <StyledListElement isOnListpage key={country.name}>
+              <StyledLink href={`/countries/${country.name.toLowerCase()}`}>
                 {country.name}{" "}
-              </Link>
+              </StyledLink>
               <StyledVisitedToggle>
                 <VisitedButton
                   onToggleVisited={onToggleVisited}

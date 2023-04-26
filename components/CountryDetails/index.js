@@ -1,13 +1,14 @@
-import StyledFlag from "../StyledFlag";
 import StyledDiv from "../StyledDiv";
+import StyledFlag from "../StyledFlag";
 import styled from "styled-components";
-import StyledList from "../StyledList";
+import Link from "next/link";
+import Arrow from "../../public/assets/arrow-left.svg";
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   font-size: 2rem;
-  position: relative;
-  right: 9rem;
-  top: 1rem;
+  position: absolute;
+  top: 5.5rem;
+  align-self: flex-start;
 `;
 
 export default function CountryDetails({ selectedCountry }) {
@@ -80,21 +81,23 @@ export default function CountryDetails({ selectedCountry }) {
 
   return (
     <StyledDiv isOnDetailsPage>
-      <StyledLink href="/list">🔙</StyledLink>
+      <StyledLink href="/list">
+        <Arrow />
+      </StyledLink>
       <h1>{selectedCountry.name.common}</h1>
-      <p>
+      <span>
         <strong>Continent:</strong> {selectedCountry.continents}
-      </p>
-      <p>
+      </span>
+      <span>
         <strong>Subregion:</strong> {selectedCountry.subregion}
-      </p>
-      <p>
+      </span>
+      <span>
         <strong>Capital:</strong> {selectedCountry.capital}
-      </p>
-      <p>
+      </span>
+      <span>
         <strong>Population:</strong> {addSeparators(selectedCountry.population)}
-      </p>
-      <p>
+      </span>
+      <span>
         <strong>
           {Object.keys(selectedCountry?.languages || selectedCountry.timezones)
             .length > 1
@@ -102,38 +105,36 @@ export default function CountryDetails({ selectedCountry }) {
             : "Language: "}
         </strong>
         {languagesWithSeparators}
-      </p>
+      </span>
 
       {
-        <p>
+        <span>
           <strong>Currency: </strong>
           {selectedCountry.currencies &&
             Object.values(selectedCountry.currencies).map((currency, index) => (
               <span key={index}>{currency.name}</span>
             ))}
-        </p>
+        </span>
       }
-      <p>
+      <span>
         <strong>
           {selectedCountry.timezones.length > 1 ? "Timezones:" : "Timezone:"}
-          <br />
         </strong>{" "}
+        {selectedCountry.timezones.length > 1 && <br />}
         {timezoneWithSeparators}
-      </p>
+      </span>
       <span>
         <strong>
           {selectedCountry.timezones.length > 1
             ? "Current local times:"
             : "Current local time:"}
-          <br />
         </strong>{" "}
-        <StyledList>{getLocalTime(selectedCountry)}</StyledList>
+        <span>{getLocalTime(selectedCountry)}</span>
       </span>
-      <p>
+      <span>
         <strong>UN Member:</strong> {selectedCountry.unMember ? "Yes" : "No"}
-      </p>
-
-      <StyledFlag>{selectedCountry.flag}</StyledFlag>
+      </span>
+      <StyledFlag isOnDetailsPage>{selectedCountry.flag}</StyledFlag>
     </StyledDiv>
   );
 }

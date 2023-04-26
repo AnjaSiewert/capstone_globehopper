@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import CountryDetails from "../../components/CountryDetails";
 
 export default function CountryDetailsPage({ selectedCountry, name }) {

@@ -1,6 +1,6 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import Layout from "../components/Layout/Layout";
+import Layout from "../components/Layout";
 import useLocalStorageState from "use-local-storage-state";
 import { useRouter } from "next/router";
 
