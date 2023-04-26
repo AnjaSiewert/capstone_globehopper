@@ -1,24 +1,25 @@
-# New Project
+# Globehopper App - Capstone Project at neuefische Bottcamp
 
-This project was created from the neue fische next template.
+Globehopper is an app, where you can track which countries you have already visited and where you want to go next
 
-## Development
+## Tech Stack
 
-### CodeSandbox
+- **React** for building the user interface
+- **Next.js** for server rendered React applications
+- **Styled Components** for CSS styling
+- **useSWR** for fetching an API
 
-Select the "Browser" tab to view this project. If this project contains tests, select the "Tests" tab to check your progress.
+## Description
 
-> 💡 Please note that Next.js support on CodeSandbox is not great.
+Globehopper allows the user to mark countries as visited and put them on the wish list if you want to travel to these countries
 
-### Local development
+## Features
 
-To run project commands locally, you need to install the dependencies using `npm i` first.
-
-You can then use the following commands:
-
-- `npm run dev` to start the development server
-- `npm run build` to create a production build
-- `npm run start` to start the production build
-- `npm run test` to run the tests in watch mode (if available)
-
-> 💡 This project requires a bundler. You can use `npm run dev` to start the development server. You can then view the project in the browser at `http://localhost:3000`. The Live Preview Extension for Visual Studio Code will **not** work for this project.
+- The amount of visited countries is visually displayed on the homepage in progress bars
+- On the second page there is a list of all countries where you can filter by continent or search for a countries name
+- In addition, there you can mark the countries as visited and and want to go
+- Clicking on a countries name leads the user to the respective details page, where details such as continent, Languages, currencies & current local times are displayed
+- on the explored page the countries marked as visited are displayed and sorted alphabetically
+- On the Wish list the marked countries are as well displayed and sorted alphabetically
+- Furthermore when clicking on the button "Plan your trip" there is a form where you can enter details to plan your trip and submit the entries
+- These details can be edited and deleted once they are submitted
