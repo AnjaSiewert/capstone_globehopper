@@ -4,15 +4,15 @@ import Earth from "../../public/assets/earth.svg";
 import Map from "../../public/assets/map.svg";
 import StyledFooter from "../StyledFooter";
 import Star from "../../public/assets/star.svg";
+import { useRouter } from "next/router";
 
 export default function Navigation() {
+  const router = useRouter();
   const activeStyles = { width: "60px", height: "60px" };
   const inactiveStyles = { width: "35px", height: "35px" };
 
   function isActive(href) {
-    if (typeof window !== "undefined") {
-      return window.location.pathname === href;
-    }
+    return router.pathname === href;
   }
 
   return (
