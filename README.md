@@ -1,17 +1,11 @@
-# Globehopper App - Capstone Project at neuefische Bottcamp
+# Globehopper App - Capstone Project at neuefische Bootcamp
 
 Globehopper is an app, where you can track which countries you have already visited and where you want to go next
-
-## Tech Stack
-
-- **React** for building the user interface
-- **Next.js** for server rendered React applications
-- **Styled Components** for CSS styling
-- **useSWR** for fetching an API
 
 ## Description
 
 With this travel app, you can easily keep track of the countries you have visited and plan your future travels all in one place
+
 ![1](https://user-images.githubusercontent.com/123647583/234690102-e5ecbc34-045f-490a-9987-ef0715e6217a.png)
 ![2](https://user-images.githubusercontent.com/123647583/234688607-5770e5fa-36ac-4adc-8796-62623543d35c.png)
 ![3](https://user-images.githubusercontent.com/123647583/234689534-2d16f01c-ad6d-4b32-913b-bf359c7e281c.png)
@@ -21,12 +15,17 @@ With this travel app, you can easily keep track of the countries you have visite
 ![6](https://user-images.githubusercontent.com/123647583/234689211-bdb53ea5-797e-443f-9f1d-c4a7f73647a6.png)
 
 
-
-
-
 ## Getting started
 
-To get started simply visit [Glopehopper App](https://capstone-globehopper.vercel.app/) and try it out! No further installation is required. Just open the link on your preferred web browser and enjoy
+To get started simply visit [Glopehopper App](https://capstone-globehopper.vercel.app/) and try it out! No further installation is required. 
+Just open the link on your preferred web browser and enjoy
+
+## Tech Stack
+
+- **React** for building the user interface
+- **Next.js** for server rendered React applications
+- **Styled Components** for CSS styling
+- **useSWR** for fetching an API
 
 ## Features
 
@@ -42,4 +41,4 @@ If you are a passionate traveler, this travel app offers some features to make y
 
 ## Acknowledgements
 
-This project is the final capstome project implemented during the Web Development Bootcamp at neuefische. I would like to thank the entire team of neuefische for their guidance and support throughout the whole process.
+This project is the final capstome project implemented during the Web Development Bootcamp at neuefische. I would like to thank the entire team of neuefische for their guidance and support throughout the whole process!
