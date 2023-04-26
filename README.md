@@ -12,8 +12,17 @@ Globehopper is an app, where you can track which countries you have already visi
 ## Description
 
 With this travel app, you can easily keep track of the countries you have visited and plan your future travels all in one place
+![1](https://user-images.githubusercontent.com/123647583/234690102-e5ecbc34-045f-490a-9987-ef0715e6217a.png)
+![2](https://user-images.githubusercontent.com/123647583/234688607-5770e5fa-36ac-4adc-8796-62623543d35c.png)
+![3](https://user-images.githubusercontent.com/123647583/234689534-2d16f01c-ad6d-4b32-913b-bf359c7e281c.png)
 
-![Pic1](public/assets/capstone1.png)
+![4](https://user-images.githubusercontent.com/123647583/234688115-ef66ce7a-5f5b-4554-b74a-da15d8c90431.png)
+![5](https://user-images.githubusercontent.com/123647583/234689774-128043eb-c319-4af9-96c0-4ad3d718a7df.png)
+![6](https://user-images.githubusercontent.com/123647583/234689211-bdb53ea5-797e-443f-9f1d-c4a7f73647a6.png)
+
+
+
+
 
 ## Getting started
 
