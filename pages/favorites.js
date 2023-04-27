@@ -21,7 +21,9 @@ export default function FavoriteCountriesPage({
   });
 
   const [selectedCountry, setSelectedCountry] = useState("");
-const [isDeleted, setIsDeleted] = useState(false);
+
+  const [isDeleted, setIsDeleted] = useState(false);
+
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
   const favoriteCountries = countries.filter((country) =>
@@ -53,8 +55,8 @@ const [isDeleted, setIsDeleted] = useState(false);
     );
   }
 
-  function handleDeleteEntry(country) {
-     setIsDeleted(!setIsDeleted);
+   function handleDeleteEntry(country) {
+    setIsDeleted(!setIsDeleted);
     setEntries(entries.filter((entry) => entry.name !== country.name.common));
     setSelectedCountry("");
   }
@@ -104,7 +106,7 @@ const [isDeleted, setIsDeleted] = useState(false);
                         )
                       }
                     >
-                       {isDeleted
+                      {isDeleted
                         ? "Plan my trip"
                         : isCountrySelected
                         ? "Hide form"
