@@ -21,6 +21,7 @@ export default function FavoriteCountriesPage({
   });
 
   const [selectedCountry, setSelectedCountry] = useState("");
+
   const [isDeleted, setIsDeleted] = useState(false);
 
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
