@@ -21,7 +21,7 @@ export default function FavoriteCountriesPage({
   });
 
   const [selectedCountry, setSelectedCountry] = useState("");
-
+const [isDeleted, setIsDeleted] = useState(false);
   const listFavoriteCountries = countriesInfo.filter((info) => info.isFavorite);
 
   const favoriteCountries = countries.filter((country) =>
@@ -54,7 +54,9 @@ export default function FavoriteCountriesPage({
   }
 
   function handleDeleteEntry(country) {
+     setIsDeleted(!setIsDeleted);
     setEntries(entries.filter((entry) => entry.name !== country.name.common));
+    setSelectedCountry("");
   }
 
   return (
@@ -102,7 +104,11 @@ export default function FavoriteCountriesPage({
                         )
                       }
                     >
-                      {isCountrySelected ? "Hide form" : "Plan my trip"}
+                       {isDeleted
+                        ? "Plan my trip"
+                        : isCountrySelected
+                        ? "Hide form"
+                        : "Plan my trip"}
                     </StyledButton>
                   )}
                   <Entry
