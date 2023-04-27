@@ -133,10 +133,10 @@ export default function Entry({
                     type="radio"
                     id="passport-notrequired"
                     name="passport"
-                    value="NO"
+                    value="No"
                     required
                     defaultChecked={
-                      selectedCountry.passport === "NO" ? true : false
+                      selectedCountry.passport === "No" ? true : false
                     }
                   />
                   NO
