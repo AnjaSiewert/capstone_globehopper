@@ -70,7 +70,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>globehopper</title>
-        <meta name="description" content="Put your description here."></meta>
+        <meta name="description" content="Travelapp"></meta>
       </Head>
       <GlobalStyle />
       <Layout>
