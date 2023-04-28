@@ -3,6 +3,10 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
   reactStrictMode: true,
   images: {
     domains: ["images.unsplash.com"],
