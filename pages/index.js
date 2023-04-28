@@ -13,7 +13,7 @@ export default function HomePage({ countries, countriesInfo }) {
         <Image
           src={worldMap}
           height={250}
-          width={300}
+          width={250}
           alt="worldmap"
           priority
         />
