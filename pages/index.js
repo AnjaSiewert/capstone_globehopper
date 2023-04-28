@@ -12,8 +12,8 @@ export default function HomePage({ countries, countriesInfo }) {
       <StyledDiv isShowingImage>
         <Image
           src={worldMap}
-          height={250}
-          width={250}
+          height={280}
+          width={280}
           alt="worldmap"
           priority
         />
