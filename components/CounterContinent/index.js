@@ -74,6 +74,7 @@ export default function CounterContinent({ countries, countriesInfo }) {
                 {continent.visitedCount} / {continent.totalCount}{" "}
                 <StyledProgressBar
                   percent={continent.percent}
+                  data-testid="progress-bar-continent"
                 ></StyledProgressBar>
               </StyledCounterContinent>
             </article>
