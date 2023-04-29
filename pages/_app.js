@@ -3,6 +3,7 @@ import useSWR from "swr";
 import Layout from "../components/Layout";
 import useLocalStorageState from "use-local-storage-state";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -67,6 +68,10 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <title>globehopper</title>
+        <meta name="description" content="Travelapp"></meta>
+      </Head>
       <GlobalStyle />
       <Layout>
         <Component
