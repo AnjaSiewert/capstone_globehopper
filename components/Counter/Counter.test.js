@@ -9,7 +9,7 @@ test("renders a headline", () => {
   expect(heading).toBeInTheDocument();
 });
 
-test("displays the correct number of visited countries", async () => {
+test("displays the correct number of visited countries", () => {
   const countries = [
     { name: "Canada" },
     { name: "United States" },

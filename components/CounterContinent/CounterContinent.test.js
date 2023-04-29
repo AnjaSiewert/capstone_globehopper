@@ -11,7 +11,7 @@ test("renders a headline", () => {
   expect(heading).toBeInTheDocument();
 });
 
-test("displays 7 progress bars (one per continent)", () => {
+test("displays 1 progress bar per continent", () => {
   const countries = [
     { name: "Canada" },
     { name: "United States" },
@@ -29,4 +29,31 @@ test("displays 7 progress bars (one per continent)", () => {
 
   const progressBar = screen.getAllByTestId("progress-bar-continent");
   expect(progressBar).toHaveLength(7);
+});
+
+test("displays the correct number of total countries per continent", async () => {
+  const countries = [
+    { name: "Germany", region: "Europe" },
+    { name: "France", region: "Europe" },
+    { name: "Spain", region: "Europe" },
+    { name: "Italy", region: "Europe" },
+    { name: "United Kingdom", region: "Europe" },
+    { name: "Poland", region: "Europe" },
+  ];
+
+  const countriesInfo = [
+    { name: "Germany", isVisited: true },
+    { name: "France", isVisited: true },
+    { name: "Spain", isVisited: true },
+    { name: "Italy", isVisited: true },
+    { name: "United Kingdom", isVisited: true },
+    { name: "Poland", isVisited: true },
+  ];
+
+  render(
+    <CounterContinent countries={countries} countriesInfo={countriesInfo} />
+  );
+
+  const totalCountriesEurope = screen.getByText("0 / 6");
+  expect(totalCountriesEurope).toBeInTheDocument();
 });
