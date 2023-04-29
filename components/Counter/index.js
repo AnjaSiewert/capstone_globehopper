@@ -12,7 +12,10 @@ export default function Counter({ countries, countriesInfo }) {
       <StyledDiv withBorderTotal>
         <StyledHeadline>The World</StyledHeadline>
         {countVisitedCountries.length} /{countries.length}
-        <StyledProgressBar percent={percentVisited} />
+        <StyledProgressBar
+          data-testid="progress-bar"
+          percent={percentVisited}
+        />
       </StyledDiv>
     </>
   );
