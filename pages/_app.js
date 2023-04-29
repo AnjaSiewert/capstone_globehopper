@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }) {
 
   if (error) return <h2>An error has occurred.</h2>;
   if (isLoading) return <h2>is loading...</h2>;
+  console.log(data);
 
   const selectedCountry = data.find(
     (country) => country.name.common.toLowerCase() === name
