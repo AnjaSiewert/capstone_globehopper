@@ -15,7 +15,7 @@ export default function VisitedButton({
   return (
     <>
       <StyledSVG
-        aria-label="Click"
+        aria-label="Click to mark as visited"
         onClick={() => {
           onToggleVisited(name);
         }}
